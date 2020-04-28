@@ -22,7 +22,8 @@ func expandEnvsInString(inp string) string {
 	return os.ExpandEnv(inp)
 }
 
-func commandEnvs(envs []models.EnvironmentItemModel) ([]string, error) {
+// CommandEnvs ...
+func CommandEnvs(envs []models.EnvironmentItemModel) ([]string, error) {
 	for _, env := range envs {
 		key, value, err := env.GetKeyValuePair()
 		if err != nil {
@@ -60,7 +61,7 @@ func commandEnvs(envs []models.EnvironmentItemModel) ([]string, error) {
 }
 
 func runCommandModel(cmdModel CommandModel) (int, error) {
-	cmdEnvs, err := commandEnvs(cmdModel.Environments)
+	cmdEnvs, err := CommandEnvs(cmdModel.Environments)
 	if err != nil {
 		return 1, err
 	}
