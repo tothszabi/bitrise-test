@@ -342,6 +342,7 @@ func stepBinaryCacheFullPath(sIDData models.StepIDData) string {
 // PrepareForStepRun ...
 func (toolkit GoToolkit) PrepareForStepRun(step stepmanModels.StepModel, sIDData models.StepIDData, stepAbsDirPath string) error {
 	fullStepBinPath := stepBinaryCacheFullPath(sIDData)
+	log.Debugf("fullStepBinPath: %s", fullStepBinPath)
 
 	// try to use cached binary, if possible
 	if sIDData.IsUniqueResourceID() {

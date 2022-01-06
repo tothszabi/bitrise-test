@@ -29,7 +29,7 @@ func redactStepInputs(environment map[string]string, inputs []models.Environment
 
 		src := bytes.NewReader([]byte(inputValue))
 		dstBuf := new(bytes.Buffer)
-		secretFilterDst := filterwriter.New(secrets, dstBuf)
+		secretFilterDst := filterwriter.New(secrets, dstBuf, nil)
 
 		if _, err := io.Copy(secretFilterDst, src); err != nil {
 			return map[string]string{}, fmt.Errorf("failed to redact secrets, stream copy failed: %s", err)

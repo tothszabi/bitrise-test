@@ -11,6 +11,7 @@ import (
 	"path/filepath"
 	"runtime"
 	"strings"
+	"syscall"
 	"time"
 
 	"github.com/bitrise-io/bitrise/configs"
@@ -19,6 +20,7 @@ import (
 	envmanModels "github.com/bitrise-io/envman/models"
 	"github.com/bitrise-io/go-utils/command"
 	"github.com/bitrise-io/go-utils/errorutil"
+	"github.com/bitrise-io/go-utils/fileutil"
 	"github.com/bitrise-io/go-utils/pathutil"
 	log "github.com/sirupsen/logrus"
 	"golang.org/x/sys/unix"
@@ -382,12 +384,14 @@ func EnvmanRun(envstorePth,
 	var outWriter io.Writer
 	var errWriter io.Writer
 
+	writeChan := make(chan struct{})
+
 	if !configs.IsSecretFiltering {
 		outWriter = os.Stdout
 		errWriter = os.Stderr
 	} else {
-
-		outWriter = filterwriter.New(secrets, os.Stdout)
+		outWriter = filterwriter.New(secrets, os.Stdout, writeChan)
+		// TODO: is it ok to set the same filterwriter instance to both outputs?
 		errWriter = outWriter
 	}
 
@@ -396,10 +400,61 @@ func EnvmanRun(envstorePth,
 		inReader = bytes.NewReader(stdInPayload)
 	}
 
+	// TODO: exec.CommandContext() could replace this struct
 	cmd := timeoutcmd.New(workDirPth, "envman", args...)
 	cmd.SetStandardIO(inReader, outWriter, errWriter)
 	cmd.SetTimeout(timeout)
 	cmd.AppendEnv("PWD=" + workDirPth)
+
+	go func() {
+		hangTimer := time.NewTimer(3 * time.Minute)
+
+		for {
+			writeTimer := time.NewTimer(1 * time.Minute)
+
+			select {
+			case <-writeChan:
+				writeTimer.Stop()
+			case <-writeTimer.C:
+				log.Warnf("No output in the past 1m")
+			case <-hangTimer.C:
+				log.Warnf("No output in the past 5m, diagnosing and terminating Bitrise CLI...")
+
+				// spindump
+				tmpDir, err := pathutil.NormalizedOSTempDirPath("spindump")
+				if err != nil {
+					log.Warnf("Failed to create tmp dir for spindump output: %s", err)
+				} else {
+					// sudo spindump -displayIdleWorkQueueThreads -aggregateStacksByThread
+					// ARGUMENTS: `pid` or `partial-name` the process to be sorted topmost in the report.
+					// ARGUMENTS: `-o` path Specifies where the report should be written.
+					// ARGUMENTS: `-stdout` Print the report to stdout (in addition to writing to a file)
+					pth := filepath.Join(tmpDir, "SpinDump.txt")
+					c := exec.Command("spindump", "-displayIdleWorkQueueThreads", "-aggregateStacksByThread", "-o", pth)
+					if err := c.Run(); err != nil {
+						log.Warnf("Failed to run spindump: %s", err)
+					}
+
+					dump, err := fileutil.ReadStringFromFile(pth)
+					if err != nil {
+						log.Warnf("Failed to read %s: %s", pth, err)
+					}
+
+					fmt.Println()
+					fmt.Println("SpinDump:")
+					fmt.Println(dump)
+
+				}
+
+				// stacktrace
+				fmt.Println()
+				fmt.Println("Stacktrace:")
+				if err := cmd.GetCmd().Process.Signal(syscall.SIGQUIT); err != nil {
+					log.Warnf("Failed to send SIGQUIT to the step run process: %s", err)
+				}
+			}
+		}
+	}()
 
 	err := cmd.Start()
 

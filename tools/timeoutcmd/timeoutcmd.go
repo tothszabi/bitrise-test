@@ -27,6 +27,11 @@ func New(dir, name string, args ...string) Command {
 	return c
 }
 
+// GetCmd ...
+func (c *Command) GetCmd() *exec.Cmd {
+	return c.cmd
+}
+
 // SetTimeout sets the max runtime of the command.
 func (c *Command) SetTimeout(t time.Duration) {
 	c.timeout = t

@@ -25,10 +25,12 @@ type Writer struct {
 	store [][]byte
 	mux   sync.Mutex
 	timer *time.Timer
+
+	writeChan chan<- struct{}
 }
 
 // New ...
-func New(secrets []string, target io.Writer) *Writer {
+func New(secrets []string, target io.Writer, writeChan chan<- struct{}) *Writer {
 	extendedSecrets := secrets
 	// adding transformed secrets with escaped newline characters to ensure that these are also obscured if found in logs
 	for _, secret := range secrets {
@@ -38,8 +40,9 @@ func New(secrets []string, target io.Writer) *Writer {
 	}
 
 	return &Writer{
-		writer:  target,
-		secrets: secretsByteList(extendedSecrets),
+		writer:    target,
+		secrets:   secretsByteList(extendedSecrets),
+		writeChan: writeChan,
 	}
 }
 
@@ -50,10 +53,15 @@ func New(secrets []string, target io.Writer) *Writer {
 // Since we do not know which is the last call of Write we need to call Flush
 // on buffer to write the remaining lines.
 func (w *Writer) Write(p []byte) (int, error) {
+	// TODO: is it ok to block Write?
 	defer func() {
 		w.mux.Unlock()
 	}()
 	w.mux.Lock()
+
+	if w.writeChan != nil {
+		w.writeChan <- struct{}{}
+	}
 
 	// previous bytes may not ended with newline
 	data := append(w.chunk, p...)
