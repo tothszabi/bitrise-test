@@ -407,43 +407,48 @@ func EnvmanRun(envstorePth,
 	cmd.AppendEnv("PWD=" + workDirPth)
 
 	go func() {
-		hangTimer := time.NewTimer(3 * time.Minute)
+		writeTimeout := 1 * time.Minute
+		hangTimeout := 3 * time.Minute
+
+		writeTimer := time.NewTimer(writeTimeout)
+		hangTimer := time.NewTimer(hangTimeout)
 
 		for {
-			writeTimer := time.NewTimer(1 * time.Minute)
-
 			select {
 			case <-writeChan:
-				writeTimer.Stop()
+				writeTimer = time.NewTimer(writeTimeout)
+				hangTimer = time.NewTimer(hangTimeout)
 			case <-writeTimer.C:
 				log.Warnf("No output in the past 1m")
+				writeTimer = time.NewTimer(writeTimeout)
 			case <-hangTimer.C:
-				log.Warnf("No output in the past 5m, diagnosing and terminating Bitrise CLI...")
+				log.Warnf("No output in the past 3m, diagnosing and terminating Bitrise CLI...")
+
+				home := pathutil.UserHomeDir()
+
+				// heartbeat
+				heartbeatPth := filepath.Join(home, "heartbeat.txt")
+				if err := fileutil.WriteStringToFile(heartbeatPth, time.Now().String()); err != nil {
+					log.Warnf("Failed to write heartbeat: %s", err)
+				} else {
+					fmt.Println()
+					fmt.Printf("heartbeat file is written: %s\n", heartbeatPth)
+				}
 
 				// spindump
-				tmpDir, err := pathutil.NormalizedOSTempDirPath("spindump")
-				if err != nil {
-					log.Warnf("Failed to create tmp dir for spindump output: %s", err)
+				pth := filepath.Join(home, "spindump.txt")
+				c := exec.Command("spindump", "-displayIdleWorkQueueThreads", "-aggregateStacksByThread", "-noBinary", "-o", pth)
+				if err := c.Run(); err != nil {
+					log.Warnf("Failed to run spindump: %s", err)
 				} else {
-					// sudo spindump -displayIdleWorkQueueThreads -aggregateStacksByThread
-					// ARGUMENTS: `pid` or `partial-name` the process to be sorted topmost in the report.
-					// ARGUMENTS: `-o` path Specifies where the report should be written.
-					// ARGUMENTS: `-stdout` Print the report to stdout (in addition to writing to a file)
-					pth := filepath.Join(tmpDir, "SpinDump.txt")
-					c := exec.Command("spindump", "-displayIdleWorkQueueThreads", "-aggregateStacksByThread", "-o", pth)
-					if err := c.Run(); err != nil {
-						log.Warnf("Failed to run spindump: %s", err)
-					}
-
 					dump, err := fileutil.ReadStringFromFile(pth)
 					if err != nil {
 						log.Warnf("Failed to read %s: %s", pth, err)
+					} else {
+						fmt.Println()
+						fmt.Println("spindump:")
+						fmt.Println(dump)
 					}
-
-					fmt.Println()
-					fmt.Println("SpinDump:")
-					fmt.Println(dump)
-
 				}
 
 				// stacktrace
