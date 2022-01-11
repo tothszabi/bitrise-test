@@ -149,7 +149,7 @@ func trigger(c *cli.Context) error {
 	}
 
 	// Trigger filter validation
-	if triggerParams.TriggerPattern == "" &&
+	if triggerParams.triggerPattern == "" &&
 		triggerParams.PushBranch == "" && triggerParams.PRSourceBranch == "" && triggerParams.PRTargetBranch == "" && triggerParams.Tag == "" {
 		log.Error("No trigger pattern nor trigger params specified")
 		printAvailableTriggerFilters(bitriseConfig.TriggerMap)
@@ -203,8 +203,8 @@ func trigger(c *cli.Context) error {
 		os.Exit(1)
 	}
 
-	if triggerParams.TriggerPattern != "" {
-		log.Infof("pattern (%s) triggered workflow (%s)", triggerParams.TriggerPattern, workflowToRunID)
+	if triggerParams.triggerPattern != "" {
+		log.Infof("pattern (%s) triggered workflow (%s)", triggerParams.triggerPattern, workflowToRunID)
 	} else {
 		if triggerParams.PushBranch != "" {
 			log.Infof("push-branch (%s) triggered workflow (%s)", triggerParams.PushBranch, workflowToRunID)

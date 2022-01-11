@@ -16,6 +16,112 @@ const RedactStr = "[REDACTED]"
 
 var newLine = []byte("\n")
 
+type FastWriter struct {
+	writer  io.Writer
+	secrets []string
+	matches [][]bool
+	isMatch bool
+	buffer  []byte
+
+	mux sync.Mutex
+}
+
+func NewFastWriter(secrets []string, target io.Writer) *FastWriter {
+	extendedSecrets := secrets
+	// adding transformed secrets with escaped newline characters to ensure that these are also obscured if found in logs
+	for _, secret := range secrets {
+		if strings.Contains(secret, "\n") {
+			extendedSecrets = append(extendedSecrets, strings.ReplaceAll(secret, "\n", `\n`))
+		}
+	}
+
+	maxSecretLen := 0
+	for _, secret := range secrets {
+		if len(secret) > maxSecretLen {
+			maxSecretLen = len(secret)
+		}
+	}
+
+	matches := make([][]bool, len(secrets))
+	for i, secret := range secrets {
+		matches[i] = make([]bool, len(secret))
+		matches[i][0] = true
+	}
+
+	return &FastWriter{
+		writer:  target,
+		secrets: extendedSecrets,
+		buffer:  []byte{},
+		matches: matches,
+	}
+}
+
+func (w *FastWriter) Write(data []byte) (int, error) {
+	w.mux.Lock()
+	defer func() {
+		w.mux.Unlock()
+	}()
+
+	for _, char := range data {
+		isCharMatch := false
+		for i, match := range w.matches {
+			for matchIndex := len(match) - 1; matchIndex >= 0; matchIndex-- {
+				if match[matchIndex] && char == w.secrets[i][matchIndex] {
+					w.matches[i][matchIndex] = false
+					if matchIndex == len(match) {
+						w.isMatch = true
+						isCharMatch = true
+
+						continue
+					}
+
+					w.matches[i][matchIndex+1] = true
+				}
+			}
+		}
+
+		if w.isMatch {
+			if !isCharMatch {
+				w.isMatch = false
+
+				w.buffer = []byte{} // Reset
+				// n, err := w.writer.Write([]byte(RedactStr))
+				// if err != nil {
+				// 	return n, err
+				// }
+
+				continue
+			}
+
+			w.buffer = append(w.buffer, char)
+		} else {
+			if isCharMatch {
+				w.buffer = append(w.buffer, char)
+
+				continue
+			}
+
+			w.buffer = []byte{} // Reset
+			// n, err := w.writer.Write([]byte{79})
+			// if err != nil {
+			// return n, err
+			// }
+		}
+	}
+
+	return len(data), nil
+}
+
+func (w *FastWriter) Flush() (int, error) {
+	w.mux.Lock()
+	defer func() {
+		w.mux.Unlock()
+	}()
+
+	return 0, nil
+	// return w.writer.Write(w.buffer)
+}
+
 // Writer ...
 type Writer struct {
 	writer  io.Writer

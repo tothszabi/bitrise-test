@@ -43,17 +43,17 @@ func registerFatal(errorMsg string, warnings []string, format string) {
 func migratePatternToParams(params RunAndTriggerParamsModel, isPullRequestMode bool) RunAndTriggerParamsModel {
 	if isPullRequestMode {
 		params.PushBranch = ""
-		params.PRSourceBranch = params.TriggerPattern
+		params.PRSourceBranch = params.triggerPattern
 		params.PRTargetBranch = ""
 		params.Tag = ""
 	} else {
-		params.PushBranch = params.TriggerPattern
+		params.PushBranch = params.triggerPattern
 		params.PRSourceBranch = ""
 		params.PRTargetBranch = ""
 		params.Tag = ""
 	}
 
-	params.TriggerPattern = ""
+	params.triggerPattern = ""
 
 	return params
 }
@@ -75,7 +75,7 @@ func getPipelineAndWorkflowIDByParams(triggerMap models.TriggerMapModel, params 
 // migrates deprecated params.TriggerPattern to params.PushBranch or params.PRSourceBranch based on isPullRequestMode
 // and returns the triggered workflow id
 func getPipelineAndWorkflowIDByParamsInCompatibleMode(triggerMap models.TriggerMapModel, params RunAndTriggerParamsModel, isPullRequestMode bool) (string, string, error) {
-	if params.TriggerPattern != "" {
+	if params.triggerPattern != "" {
 		params = migratePatternToParams(params, isPullRequestMode)
 	}
 
@@ -155,7 +155,7 @@ func triggerCheck(c *cli.Context) error {
 	}
 
 	// Trigger filter validation
-	if triggerParams.TriggerPattern == "" &&
+	if triggerParams.triggerPattern == "" &&
 		triggerParams.PushBranch == "" && triggerParams.PRSourceBranch == "" && triggerParams.PRTargetBranch == "" && triggerParams.Tag == "" {
 		registerFatal("No trigger pattern nor trigger params specified", warnings, triggerParams.Format)
 	}
@@ -181,8 +181,8 @@ func triggerCheck(c *cli.Context) error {
 		triggerModel["workflow"] = workflowToRunID
 	}
 
-	if triggerParams.TriggerPattern != "" {
-		triggerModel["pattern"] = triggerParams.TriggerPattern
+	if triggerParams.triggerPattern != "" {
+		triggerModel["pattern"] = triggerParams.triggerPattern
 	} else {
 		if triggerParams.PushBranch != "" {
 			triggerModel["push-branch"] = triggerParams.PushBranch

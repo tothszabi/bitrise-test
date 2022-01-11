@@ -15,7 +15,7 @@ type RunAndTriggerParamsModel struct {
 	WorkflowToRunID string `json:"workflow"`
 
 	// Trigger Params
-	TriggerPattern string `json:"pattern"`
+	triggerPattern string `json:"pattern"`
 
 	PushBranch     string `json:"push-branch"`
 	PRSourceBranch string `json:"pr-source-branch"`
@@ -74,7 +74,7 @@ func parseRunAndTriggerParams(
 	}
 
 	if triggerPattern != "" {
-		params.TriggerPattern = triggerPattern
+		params.triggerPattern = triggerPattern
 	}
 
 	if pushBranch != "" {

@@ -44,7 +44,7 @@ func TestParseRunAndTriggerJSONParams(t *testing.T) {
 
 		require.Equal(t, "primary", params.WorkflowToRunID)
 
-		require.Equal(t, "master", params.TriggerPattern)
+		require.Equal(t, "master", params.triggerPattern)
 		require.Equal(t, "deploy", params.PushBranch)
 		require.Equal(t, "development", params.PRSourceBranch)
 		require.Equal(t, "release", params.PRTargetBranch)
@@ -66,7 +66,7 @@ func TestParseRunAndTriggerJSONParams(t *testing.T) {
 
 		require.Equal(t, "", params.WorkflowToRunID)
 
-		require.Equal(t, "", params.TriggerPattern)
+		require.Equal(t, "", params.triggerPattern)
 		require.Equal(t, "", params.PushBranch)
 		require.Equal(t, "", params.PRSourceBranch)
 		require.Equal(t, "", params.PRTargetBranch)
@@ -115,7 +115,7 @@ func TestParseRunAndTriggerParams(t *testing.T) {
 
 		require.Equal(t, workflow, params.WorkflowToRunID)
 
-		require.Equal(t, pattern, params.TriggerPattern)
+		require.Equal(t, pattern, params.triggerPattern)
 		require.Equal(t, pushBranch, params.PushBranch)
 		require.Equal(t, prSourceBranch, params.PRSourceBranch)
 		require.Equal(t, prTargetBranch, params.PRTargetBranch)
@@ -172,7 +172,7 @@ func TestParseRunAndTriggerParams(t *testing.T) {
 
 		require.Equal(t, workflow, params.WorkflowToRunID)
 
-		require.Equal(t, pattern, params.TriggerPattern)
+		require.Equal(t, pattern, params.triggerPattern)
 		require.Equal(t, pushBranch, params.PushBranch)
 		require.Equal(t, prSourceBranch, params.PRSourceBranch)
 		require.Equal(t, prTargetBranch, params.PRTargetBranch)
@@ -229,7 +229,7 @@ func TestParseRunAndTriggerParams(t *testing.T) {
 
 		require.Equal(t, workflow, params.WorkflowToRunID)
 
-		require.Equal(t, pattern, params.TriggerPattern)
+		require.Equal(t, pattern, params.triggerPattern)
 		require.Equal(t, pushBranch, params.PushBranch)
 		require.Equal(t, prSourceBranch, params.PRSourceBranch)
 		require.Equal(t, prTargetBranch, params.PRTargetBranch)
@@ -286,7 +286,7 @@ func TestParseRunAndTriggerParams(t *testing.T) {
 
 		require.Equal(t, "test", params.WorkflowToRunID)
 
-		require.Equal(t, "", params.TriggerPattern)
+		require.Equal(t, "", params.triggerPattern)
 		require.Equal(t, "", params.PushBranch)
 		require.Equal(t, "", params.PRSourceBranch)
 		require.Equal(t, "", params.PRTargetBranch)
@@ -334,7 +334,7 @@ func TestParseRunAndTriggerParams(t *testing.T) {
 
 		require.Equal(t, workflow, params.WorkflowToRunID)
 
-		require.Equal(t, pattern, params.TriggerPattern)
+		require.Equal(t, pattern, params.triggerPattern)
 		require.Equal(t, pushBranch, params.PushBranch)
 		require.Equal(t, prSourceBranch, params.PRSourceBranch)
 		require.Equal(t, prTargetBranch, params.PRTargetBranch)
@@ -374,7 +374,7 @@ func TestParseRunParams(t *testing.T) {
 
 		require.Equal(t, workflow, params.WorkflowToRunID)
 
-		require.Equal(t, "", params.TriggerPattern)
+		require.Equal(t, "", params.triggerPattern)
 		require.Equal(t, "", params.PushBranch)
 		require.Equal(t, "", params.PRSourceBranch)
 		require.Equal(t, "", params.PRTargetBranch)
@@ -419,7 +419,7 @@ func TestParseTriggerParams(t *testing.T) {
 
 		require.Equal(t, "", params.WorkflowToRunID)
 
-		require.Equal(t, pattern, params.TriggerPattern)
+		require.Equal(t, pattern, params.triggerPattern)
 		require.Equal(t, pushBranch, params.PushBranch)
 		require.Equal(t, prSourceBranch, params.PRSourceBranch)
 		require.Equal(t, prTargetBranch, params.PRTargetBranch)
@@ -466,7 +466,7 @@ func TestParseTriggerCheckParams(t *testing.T) {
 
 		require.Equal(t, "", params.WorkflowToRunID)
 
-		require.Equal(t, pattern, params.TriggerPattern)
+		require.Equal(t, pattern, params.triggerPattern)
 		require.Equal(t, pushBranch, params.PushBranch)
 		require.Equal(t, prSourceBranch, params.PRSourceBranch)
 		require.Equal(t, prTargetBranch, params.PRTargetBranch)

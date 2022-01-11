@@ -635,7 +635,7 @@ func activateAndRunSteps(
 			StepInputs: redactedStepInputs,
 			Status:     resultCode,
 			Idx:        buildRunResults.ResultsCount(),
-			RunTime:    time.Now().Sub(stepStartTime),
+			RunTime:    time.Since(stepStartTime),
 			ErrorStr:   errStr,
 			ExitCode:   exitCode,
 			StartTime:  stepStartTime,
@@ -662,7 +662,6 @@ func activateAndRunSteps(
 			}
 
 			buildRunResults.FailedSteps = append(buildRunResults.FailedSteps, stepResults)
-			break
 		case models.StepRunStatusCodeFailedSkippable:
 			if !isExitStatusError {
 				log.Warnf("Step (%s) failed, but was marked as skippable: %s", pointers.StringWithDefault(stepInfoCopy.Step.Title, "missing title"), err)
@@ -671,12 +670,10 @@ func activateAndRunSteps(
 			}
 
 			buildRunResults.FailedSkippableSteps = append(buildRunResults.FailedSkippableSteps, stepResults)
-			break
 		case models.StepRunStatusCodeSkipped:
 			log.Warnf("A previous step failed, and this step (%s) was not marked as IsAlwaysRun, skipped", pointers.StringWithDefault(stepInfoCopy.Step.Title, "missing title"))
 
 			buildRunResults.SkippedSteps = append(buildRunResults.SkippedSteps, stepResults)
-			break
 		case models.StepRunStatusCodeSkippedWithRunIf:
 			log.Warn("The step's (" + pointers.StringWithDefault(stepInfoCopy.Step.Title, "missing title") + ") Run-If expression evaluated to false - skipping")
 			if runIf != "" {
@@ -684,7 +681,6 @@ func activateAndRunSteps(
 			}
 
 			buildRunResults.SkippedSteps = append(buildRunResults.SkippedSteps, stepResults)
-			break
 		default:
 			log.Error("Unknown result code")
 			return
@@ -949,7 +945,7 @@ func activateAndRunSteps(
 				"BITRISE_STEP_SOURCE_DIR": stepDir,
 			})
 
-			// ensure a new testDirPath and if created successfuly then attach it to the step process by and env
+			// ensure a new testDirPath and if created successfully then attach it to the step process by and env
 			testDirPath, err := ioutil.TempDir(os.Getenv(configs.BitriseTestDeployDirEnvKey), "test_result")
 			if err != nil {
 				log.Errorf("Failed to create test result dir, error: %s", err)
