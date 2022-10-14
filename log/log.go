@@ -3,13 +3,10 @@ package log
 import (
 	"fmt"
 	"io"
-	"strings"
 	"time"
 
 	"github.com/bitrise-io/bitrise/log/corelog"
 	"github.com/bitrise-io/bitrise/models"
-	"github.com/bitrise-io/bitrise/version"
-	"github.com/bitrise-io/go-utils/colorstring"
 )
 
 const rfc3339MicroTimeLayout = "2006-01-02T15:04:05.999999Z07:00"
@@ -139,51 +136,24 @@ func (m *defaultLogger) LogMessage(message string, level corelog.Level) {
 }
 
 func (m *defaultLogger) PrintBitriseStartedEvent(plan models.WorkflowRunPlan) {
-	if m.opts.LoggerType == JSONLogger {
-		m.logger.LogEvent(plan, corelog.EventLogFields{
-			Timestamp: m.opts.TimeProvider().Format(rfc3339MicroTimeLayout),
-			EventType: "bitrise_started",
-		})
-	} else {
-		m.PrintBitriseASCIIArt()
-		m.Warnf("CI mode: %v", plan.CIMode)
-		m.Warnf("PR mode: %v", plan.PRMode)
-		m.Warnf("Debug mode: %v", plan.DebugMode)
-		m.Warnf("Secret filtering mode: %v", plan.SecretFilteringMode)
-		m.Warnf("Secret Envs filtering mode: %v", plan.SecretEnvsFilteringMode)
-		m.Warnf("No output timeout mode: %v", plan.NoOutputTimeoutMode)
-		m.Print()
-		var workflowIDs []string
-		for _, workflowPlan := range plan.ExecutionPlan {
-			workflowID := workflowPlan.WorkflowID
-			if workflowPlan.WorkflowID == plan.TargetWorkflowID {
-				workflowID = colorstring.Green(workflowPlan.WorkflowID)
-			}
-			workflowIDs = append(workflowIDs, workflowID)
-		}
-		var prefix string
-		if len(workflowIDs) == 1 {
-			prefix = colorstring.Blue("Running workflow")
-		} else {
-			prefix = colorstring.Blue("Running workflows")
-		}
-
-		m.Printf("%s: %s", prefix, strings.Join(workflowIDs, " -->  "))
-	}
+	m.logger.LogEvent(plan, corelog.EventLogFields{
+		Timestamp: m.opts.TimeProvider().Format(rfc3339MicroTimeLayout),
+		EventType: "bitrise_started",
+	})
 }
 
-// PrintBitriseASCIIArt ...
-func (m *defaultLogger) PrintBitriseASCIIArt() {
-	m.Print(`
-██████╗ ██╗████████╗██████╗ ██╗███████╗███████╗
-██╔══██╗██║╚══██╔══╝██╔══██╗██║██╔════╝██╔════╝
-██████╔╝██║   ██║   ██████╔╝██║███████╗█████╗
-██╔══██╗██║   ██║   ██╔══██╗██║╚════██║██╔══╝
-██████╔╝██║   ██║   ██║  ██║██║███████║███████╗
-╚═════╝ ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚══════╝╚══════╝`)
-	m.Infof("version: %s", colorstring.Green(version.VERSION))
-	m.Print()
-}
+//// PrintBitriseASCIIArt ...
+//func (m *defaultLogger) PrintBitriseASCIIArt() {
+//	m.Print(`
+//██████╗ ██╗████████╗██████╗ ██╗███████╗███████╗
+//██╔══██╗██║╚══██╔══╝██╔══██╗██║██╔════╝██╔════╝
+//██████╔╝██║   ██║   ██████╔╝██║███████╗█████╗
+//██╔══██╗██║   ██║   ██╔══██╗██║╚════██║██╔══╝
+//██████╔╝██║   ██║   ██║  ██║██║███████║███████╗
+//╚═════╝ ╚═╝   ╚═╝   ╚═╝  ╚═╝╚═╝╚══════╝╚══════╝`)
+//	m.Infof("version: %s", colorstring.Green(version.VERSION))
+//	m.Print()
+//}
 
 func (m *defaultLogger) logMessage(message string, level corelog.Level) {
 	fields := m.createMessageFields(level)
