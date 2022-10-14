@@ -73,13 +73,13 @@ func (l consoleLogger) LogEvent(content interface{}, fields EventLogFields) {
 		if !ok {
 			fmt.Printf("writing event message failed: (%#v) is not a workflow run plan", content)
 		}
-		l.LogBitriseStartedEvent(plan)
+		l.logBitriseStartedEvent(plan)
 	default:
 		fmt.Printf("writing event message failed: unkown event: %v", fields.EventType)
 	}
 }
 
-func (l consoleLogger) LogBitriseStartedEvent(plan models.WorkflowRunPlan) {
+func (l consoleLogger) logBitriseStartedEvent(plan models.WorkflowRunPlan) {
 	messages := createBitriseStartedMessages(plan)
 	for _, message := range messages {
 		l.LogMessage(message.Message, MessageLogFields{
