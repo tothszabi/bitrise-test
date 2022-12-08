@@ -24,22 +24,39 @@ const (
 // Util methods
 //------------------------------
 
+func combineTitleAndSuffix(title, suffix string) string {
+	var titleWithSuffix string
+
+	if len(title) > 0 {
+		titleWithSuffix = title
+	}
+
+	if len(suffix) > 0 {
+		if len(titleWithSuffix) > 0 {
+			titleWithSuffix += " "
+		}
+		titleWithSuffix += suffix
+	}
+
+	return titleWithSuffix
+}
+
+// todo: handle long suffix
 func trimTitle(title string, titleSuffix string, titleBoxWidth int) string {
-	length := len(title)
-	if titleSuffix != "" {
-		length += 1 + len(titleSuffix)
+	titleWithSuffix := combineTitleAndSuffix(title, titleSuffix)
+
+	titleWithSuffixLength := len(titleWithSuffix)
+	if titleWithSuffixLength > titleBoxWidth {
+		diff := titleWithSuffixLength - titleBoxWidth
+
+		if len(title) > 0 {
+			title = stringutil.MaxFirstCharsWithDots(title, len(title)-diff)
+		} else if len(titleSuffix) > 0 {
+			titleSuffix = stringutil.MaxFirstCharsWithDots(titleSuffix, len(titleSuffix)-diff)
+		}
 	}
 
-	if length > titleBoxWidth {
-		diff := length - titleBoxWidth
-		title = stringutil.MaxFirstCharsWithDots(title, len(title)-diff)
-	}
-
-	if titleSuffix == "" {
-		return title
-	}
-
-	return strings.TrimSpace(fmt.Sprintf("%s %s", title, titleSuffix))
+	return combineTitleAndSuffix(title, titleSuffix)
 }
 
 func getTrimmedStepName(stepRunResult models.StepRunResultsModel) string {
