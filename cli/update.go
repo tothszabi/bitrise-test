@@ -15,17 +15,17 @@ import (
 
 	"github.com/bitrise-io/go-utils/command"
 	ver "github.com/hashicorp/go-version"
-	"github.com/tothszabi/bitrise-test/bitrise"
-	"github.com/tothszabi/bitrise-test/configs"
-	"github.com/tothszabi/bitrise-test/log"
-	"github.com/tothszabi/bitrise-test/plugins"
-	"github.com/tothszabi/bitrise-test/version"
+	"github.com/tothszabi/bitrise-test/v2/bitrise"
+	"github.com/tothszabi/bitrise-test/v2/configs"
+	"github.com/tothszabi/bitrise-test/v2/log"
+	"github.com/tothszabi/bitrise-test/v2/plugins"
+	"github.com/tothszabi/bitrise-test/v2/version"
 	"github.com/urfave/cli"
 )
 
 const (
 	tagsURL     = "https://api.github.com/repos/bitrise-io/bitrise/tags"
-	downloadURL = "https://github.com/tothszabi/bitrise-test/releases/download/%s/bitrise-%s-x86_64"
+	downloadURL = "https://github.com/tothszabi/bitrise-test/v2/releases/download/%s/bitrise-%s-x86_64"
 )
 
 var updateCommand = cli.Command{

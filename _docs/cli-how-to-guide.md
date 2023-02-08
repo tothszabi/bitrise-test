@@ -6,7 +6,7 @@ title: Bitrise Command Line Interface How to Guide
 
 Yes!!! Our Command Line Interface is now available via [Homebrew](https://github.com/Homebrew/homebrew/tree/master/share/doc/homebrew#readme)! First call `brew update` and when it's done you simply have to call the `brew install bitrise` command in your terminal. And BOOM! you can start using it right away!
 
-If you choose to go the old fashioned way just check the [releases site](https://github.com/tothszabi/bitrise-test/releases) for instructions.
+If you choose to go the old fashioned way just check the [releases site](https://github.com/tothszabi/bitrise-test/v2/releases) for instructions.
 
 ## Setting up Bitrise
 
@@ -23,11 +23,11 @@ The command first prints our awesome looking logo - don't feel ashamed to stop a
 ![Success](images/success.gif "Success")
 
 Great success! Now all that's left is give it a test run! The previous command created a bitrise.yml file in the current directory with a simple workflow. Just type `bitrise run primary` and watch CLI do the magic.
-The file contains a simple workflow that only has the Step called [script](https://github.com/tothszabi/bitrise-test-steplib/tree/master/steps/script) from our [StepLib](https://github.com/bitrise-io/steps-script) (this Step can be used to run a simple script). In this case it writes `Welcome to Bitrise!` to the terminal.
+The file contains a simple workflow that only has the Step called [script](https://github.com/tothszabi/bitrise-test/v2-steplib/tree/master/steps/script) from our [StepLib](https://github.com/bitrise-io/steps-script) (this Step can be used to run a simple script). In this case it writes `Welcome to Bitrise!` to the terminal.
 
 ## Creating your own Workflow
 
-Feel free to check the example Workflows that we created to show you a small proportion of the endless possibilities in Bitrise CLI. You can view them in the [Bitrise Repository](https://github.com/tothszabi/bitrise-test).
+Feel free to check the example Workflows that we created to show you a small proportion of the endless possibilities in Bitrise CLI. You can view them in the [Bitrise Repository](https://github.com/tothszabi/bitrise-test/v2).
 
 Let's try and create one of the tutorial Workflows together, shall we?
 
@@ -35,7 +35,7 @@ We'll start off with the `bitrise.yml` that the init command created. Open it an
 
 ## The bitrise.yml
 
-As you can see `bitrise.yml` contains a header that consists of two information, the `format version` that indicates the version and the `default_step_lib_source` that shows which Step Library is used. The default is [https://github.com/tothszabi/bitrise-test-steplib](https://github.com/tothszabi/bitrise-test-steplib) feel free to look around and experiment with the Steps.
+As you can see `bitrise.yml` contains a header that consists of two information, the `format version` that indicates the version and the `default_step_lib_source` that shows which Step Library is used. The default is [https://github.com/tothszabi/bitrise-test/v2-steplib](https://github.com/tothszabi/bitrise-test/v2-steplib) feel free to look around and experiment with the Steps.
 
 There are two main parts of the `bitrise.yml` the `app` that is filled from the information that you provided during the `init` command and the `workflows`.
 
@@ -52,8 +52,8 @@ As you can see there are plenty of extra fields like `summary`, `title`, `before
               #!/bin/bash
               echo "Welcome to Bitrise!"
 
-You can try running it again with `bitrise run myflippinawesomewf`. Let's carry on and add the [Timestamp Step](https://github.com/tothszabi/bitrise-test-steplib/tree/master/steps/timestamp/0.9.0) that is used in the `steps-and-workflows` tutorial.
-Let's stick to a minimalist approach when adding the [Timestamp Step](https://github.com/tothszabi/bitrise-test-steplib/tree/master/steps/timestamp/0.9.0) and only add `timestamp` as a new step in your Workflow. This will tell bitrise to search the default StepLib for a Step called `timestamp`, download the bash script of the Step and run it. You should always pay attention to the indentation! It is crucial to keep your .yml well formatted to get the correct functionality.
+You can try running it again with `bitrise run myflippinawesomewf`. Let's carry on and add the [Timestamp Step](https://github.com/tothszabi/bitrise-test/v2-steplib/tree/master/steps/timestamp/0.9.0) that is used in the `steps-and-workflows` tutorial.
+Let's stick to a minimalist approach when adding the [Timestamp Step](https://github.com/tothszabi/bitrise-test/v2-steplib/tree/master/steps/timestamp/0.9.0) and only add `timestamp` as a new step in your Workflow. This will tell bitrise to search the default StepLib for a Step called `timestamp`, download the bash script of the Step and run it. You should always pay attention to the indentation! It is crucial to keep your .yml well formatted to get the correct functionality.
 Now the Workflow should look like this:
 
     myflippinawesomewf:
@@ -106,7 +106,7 @@ But before you close this tab let's put some twist in it, shall we?
 
 As the saying goes: "It's good to know the time, but flooding a conversation with a teammate on [Slack](https://slack.com/) with the current time is the best!"
 
-So our next step will be adding a [slack](https://github.com/tothszabi/bitrise-test-steplib/tree/master/steps/slack/2.1.0) Step to notify the chosen teammate about the current time! **Keeping your private informations private is very important for us so we'll use the `.bitrise.secrets.yml` file to store the informations needed to send a message via [Slack](https://slack.com/). Make sure to include the `.bitrise.secrets.yml` file in your `.gitignore` file!** Let's open the file (or create it if there's no `.bitrise.secrets.yml`). The following inputs are needed for running the [slack](https://github.com/tothszabi/bitrise-test-steplib/tree/master/steps/slack/2.1.0) Step:
+So our next step will be adding a [slack](https://github.com/tothszabi/bitrise-test/v2-steplib/tree/master/steps/slack/2.1.0) Step to notify the chosen teammate about the current time! **Keeping your private informations private is very important for us so we'll use the `.bitrise.secrets.yml` file to store the informations needed to send a message via [Slack](https://slack.com/). Make sure to include the `.bitrise.secrets.yml` file in your `.gitignore` file!** Let's open the file (or create it if there's no `.bitrise.secrets.yml`). The following inputs are needed for running the [slack](https://github.com/tothszabi/bitrise-test/v2-steplib/tree/master/steps/slack/2.1.0) Step:
 
 - webhook_url:
 - channel:
@@ -137,5 +137,5 @@ Now that you added the required inputs add the slack Step to the Workflow. When 
           - message: "ISO_DATETIME: ${ISO_DATETIME}"
           - message_on_error: "Whoooooops, There's no time!!!"
 
-You can notice that the [slack](https://github.com/tothszabi/bitrise-test-steplib/tree/master/steps/slack/2.1.0) Step contains two message texts. One to send when everything went well and we can send the time and another to send when there was a problem getting the time.
+You can notice that the [slack](https://github.com/tothszabi/bitrise-test/v2-steplib/tree/master/steps/slack/2.1.0) Step contains two message texts. One to send when everything went well and we can send the time and another to send when there was a problem getting the time.
 Well that's it! Run the workflow and wait for that awesome Slack message! Happy building!

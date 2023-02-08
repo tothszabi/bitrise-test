@@ -306,7 +306,7 @@ func TestTriggerMapItemValidate(t *testing.T) {
 	{
 		configStr := `
 format_version: 1.3.1
-default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test/v2-steplib.git"
 
 trigger_map:
 - push_branch: "/release"
@@ -328,7 +328,7 @@ workflows:
 	{
 		configStr := `
 format_version: 1.3.1
-default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test/v2-steplib.git"
 
 trigger_map:
 - push_branch: "/release"
@@ -359,7 +359,7 @@ workflows:
 	{
 		configStr := `
 format_version: 1.3.1
-default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test/v2-steplib.git"
 
 trigger_map:
 - push_branch: "/release"
@@ -1174,7 +1174,7 @@ func TestValidateWorkflow(t *testing.T) {
 		configStr := `
 format_version: 1.4.0
 
-default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test/v2-steplib.git"
 
 workflows:
   target:
@@ -1205,7 +1205,7 @@ workflows:
 	{
 		configStr := `format_version: 1.4.0
 
-default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test/v2-steplib.git"
 
 workflows:
   target:
@@ -1498,7 +1498,7 @@ func Test_StepIDData_IsUniqueResourceID(t *testing.T) {
 		require.Equal(t, false, stepIDDataEmpty.IsUniqueResourceID())
 	}
 
-	for _, aSourceID := range []string{"a", "any-other-step-source", "https://github.com/tothszabi/bitrise-test-steplib.git"} {
+	for _, aSourceID := range []string{"a", "any-other-step-source", "https://github.com/tothszabi/bitrise-test/v2-steplib.git"} {
 		// Only if StepLib, AND both ID and Version are defined, only then
 		// this is a Unique Resource ID!
 		stepIDDataWithIDAndVersionSpecified.SteplibSource = aSourceID
@@ -1812,7 +1812,7 @@ func configModelFromYAMLBytes(configBytes []byte) (bitriseData BitriseDataModel,
 
 func TestRemoveWorkflowRedundantFields(t *testing.T) {
 	configStr := `format_version: 2
-default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test/v2-steplib.git"
 project_type: ios
 
 app:
@@ -1841,7 +1841,7 @@ workflows:
 	require.NoError(t, err)
 
 	require.Equal(t, "2", config.FormatVersion)
-	require.Equal(t, "https://github.com/tothszabi/bitrise-test-steplib.git", config.DefaultStepLibSource)
+	require.Equal(t, "https://github.com/tothszabi/bitrise-test/v2-steplib.git", config.DefaultStepLibSource)
 	require.Equal(t, "ios", config.ProjectType)
 
 	require.Equal(t, "", config.App.Title)
@@ -1923,7 +1923,7 @@ func TestBitriseDataModelValidateWorkflowsCircularDependency(t *testing.T) {
 
 	config := BitriseDataModel{
 		FormatVersion:        "1.0.0",
-		DefaultStepLibSource: "https://github.com/tothszabi/bitrise-test-steplib.git",
+		DefaultStepLibSource: "https://github.com/tothszabi/bitrise-test/v2-steplib.git",
 		Workflows: map[string]WorkflowModel{
 			"target": workflow,
 			"before": beforeWorkflow,

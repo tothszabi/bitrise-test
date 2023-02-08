@@ -8,8 +8,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/tothszabi/bitrise-test/log"
-	"github.com/tothszabi/bitrise-test/tools/hangdetector"
+	"github.com/tothszabi/bitrise-test/v2/log"
+	"github.com/tothszabi/bitrise-test/v2/tools/hangdetector"
 )
 
 // Command controls the command run.

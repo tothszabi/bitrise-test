@@ -7,7 +7,7 @@ import (
 
 	"github.com/bitrise-io/go-utils/command"
 	"github.com/stretchr/testify/require"
-	"github.com/tothszabi/bitrise-test/version"
+	"github.com/tothszabi/bitrise-test/v2/version"
 )
 
 func Test_VersionOutput(t *testing.T) {

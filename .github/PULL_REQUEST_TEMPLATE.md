@@ -9,7 +9,7 @@
   creating the PR. This is simply a reminder of what we are going to look
   for before merging your code.
 -->
-- [ ] I've read and followed the [Contribution Guidelines](https://github.com/tothszabi/bitrise-test/blob/master/.github/CONTRIBUTING.md)
+- [ ] I've read and followed the [Contribution Guidelines](https://github.com/tothszabi/bitrise-test/v2/blob/master/.github/CONTRIBUTING.md)
 - [ ] `README.md` is updated with the changes (if needed)
 
 ### Version

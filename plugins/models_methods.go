@@ -14,8 +14,8 @@ import (
 	"github.com/bitrise-io/go-utils/fileutil"
 	"github.com/bitrise-io/go-utils/pathutil"
 	ver "github.com/hashicorp/go-version"
-	"github.com/tothszabi/bitrise-test/tools"
-	"github.com/tothszabi/bitrise-test/version"
+	"github.com/tothszabi/bitrise-test/v2/tools"
+	"github.com/tothszabi/bitrise-test/v2/version"
 )
 
 //=======================================

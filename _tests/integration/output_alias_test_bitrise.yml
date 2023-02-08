@@ -1,5 +1,5 @@
 format_version: 3
-default_step_lib_source: https://github.com/tothszabi/bitrise-test-steplib.git
+default_step_lib_source: https://github.com/tothszabi/bitrise-test/v2-steplib.git
 
 workflows:
   test-single-step-single-alias:

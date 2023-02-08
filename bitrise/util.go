@@ -15,10 +15,10 @@ import (
 	"github.com/bitrise-io/go-utils/pathutil"
 	"github.com/bitrise-io/go-utils/pointers"
 	stepmanModels "github.com/bitrise-io/stepman/models"
-	"github.com/tothszabi/bitrise-test/configs"
-	"github.com/tothszabi/bitrise-test/log"
-	"github.com/tothszabi/bitrise-test/models"
-	"github.com/tothszabi/bitrise-test/tools"
+	"github.com/tothszabi/bitrise-test/v2/configs"
+	"github.com/tothszabi/bitrise-test/v2/log"
+	"github.com/tothszabi/bitrise-test/v2/models"
+	"github.com/tothszabi/bitrise-test/v2/tools"
 	"gopkg.in/yaml.v2"
 )
 

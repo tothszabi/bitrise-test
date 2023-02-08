@@ -9,7 +9,7 @@ import (
 	"github.com/bitrise-io/go-utils/fileutil"
 	"github.com/bitrise-io/go-utils/pathutil"
 	ver "github.com/hashicorp/go-version"
-	"github.com/tothszabi/bitrise-test/configs"
+	"github.com/tothszabi/bitrise-test/v2/configs"
 )
 
 const (

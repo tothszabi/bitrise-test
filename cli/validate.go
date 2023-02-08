@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/bitrise-io/go-utils/colorstring"
-	"github.com/tothszabi/bitrise-test/output"
+	"github.com/tothszabi/bitrise-test/v2/output"
 	"github.com/urfave/cli"
 )
 

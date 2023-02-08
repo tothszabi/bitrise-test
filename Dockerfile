@@ -29,6 +29,6 @@ RUN go install
 
 # setup (downloads envman & stepman)
 RUN bitrise setup
-RUN $HOME/.bitrise/tools/stepman setup -c https://github.com/tothszabi/bitrise-test-steplib.git
+RUN $HOME/.bitrise/tools/stepman setup -c https://github.com/tothszabi/bitrise-test/v2-steplib.git
 
 CMD bitrise version

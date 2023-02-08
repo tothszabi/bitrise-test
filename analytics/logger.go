@@ -1,7 +1,7 @@
 package analytics
 
 import (
-	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/v2/log"
 )
 
 // utilsLogAdapter extends the bitrise/log.Logger to meet the go-utils/v2/log.Logger interface.

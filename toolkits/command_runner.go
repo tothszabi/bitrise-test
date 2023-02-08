@@ -5,7 +5,7 @@ import (
 
 	"github.com/bitrise-io/go-utils/command"
 	"github.com/bitrise-io/go-utils/errorutil"
-	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/v2/log"
 )
 
 // commandRunner ...

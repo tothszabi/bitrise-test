@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/bitrise-io/go-utils/pathutil"
-	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/v2/log"
 )
 
 var (

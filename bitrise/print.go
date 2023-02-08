@@ -10,9 +10,9 @@ import (
 	"github.com/bitrise-io/go-utils/colorstring"
 	"github.com/bitrise-io/go-utils/stringutil"
 	stepmanModels "github.com/bitrise-io/stepman/models"
-	"github.com/tothszabi/bitrise-test/log"
-	"github.com/tothszabi/bitrise-test/models"
-	"github.com/tothszabi/bitrise-test/utils"
+	"github.com/tothszabi/bitrise-test/v2/log"
+	"github.com/tothszabi/bitrise-test/v2/models"
+	"github.com/tothszabi/bitrise-test/v2/utils"
 )
 
 const (

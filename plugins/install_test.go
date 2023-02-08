@@ -10,8 +10,8 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-const examplePluginGitURL = "https://github.com/tothszabi/bitrise-test-plugins-example.git"
-const analyticsPluginBinURL = "https://github.com/tothszabi/bitrise-test-plugins-analytics/releases/download/0.9.1/analytics-Darwin-x86_64"
+const examplePluginGitURL = "https://github.com/tothszabi/bitrise-test/v2-plugins-example.git"
+const analyticsPluginBinURL = "https://github.com/tothszabi/bitrise-test/v2-plugins-analytics/releases/download/0.9.1/analytics-Darwin-x86_64"
 
 func TestIsLocalURL(t *testing.T) {
 	t.Log("local url - absolute")
@@ -229,11 +229,11 @@ func Test_isSourceURIChanged(t *testing.T) {
 		want      bool
 	}{
 		{installed: "https://github.com/bitrise-core/bitrise-plugins-analytics.git", new: "https://github.com/bitrise-core/bitrise-plugins-analytics.git", want: false},
-		{installed: "https://github.com/bitrise-core/bitrise-plugins-analytics.git", new: "https://github.com/tothszabi/bitrise-test-plugins-analytics.git", want: false},
+		{installed: "https://github.com/bitrise-core/bitrise-plugins-analytics.git", new: "https://github.com/tothszabi/bitrise-test/v2-plugins-analytics.git", want: false},
 		{installed: "https://github.com/bitrise-core/bitrise-plugins-analytics.git", new: "https://github.com/myorg/bitrise-plugins-analytics.git", want: true},
 		{installed: "https://github.com/bitrise-core/bitrise-plugins-analytics.git", new: "https://github.com/bitrise-team/bitrise-plugins-analytics.git", want: true},
 		{installed: "https://github.com/bitrise-custom-org/bitrise-plugins-analytics.git", new: "https://github.com/bitrise-core/bitrise-plugins-analytics.git", want: true},
-		{installed: "https://github.com/bitrise-custom-org/bitrise-plugins-analytics.git", new: "https://github.com/tothszabi/bitrise-test-plugins-analytics.git", want: true},
+		{installed: "https://github.com/bitrise-custom-org/bitrise-plugins-analytics.git", new: "https://github.com/tothszabi/bitrise-test/v2-plugins-analytics.git", want: true},
 	} {
 		t.Run("", func(t *testing.T) {
 			if got := isSourceURIChanged(tt.installed, tt.new); got != tt.want {

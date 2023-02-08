@@ -1,5 +1,5 @@
 format_version: 1.3.0
-default_step_lib_source: https://github.com/tothszabi/bitrise-test-steplib.git
+default_step_lib_source: https://github.com/tothszabi/bitrise-test/v2-steplib.git
 app:
   envs:
   - BITRISE_PROJECT_TITLE: lesson_1
@@ -11,7 +11,7 @@ app:
 workflows:
   steplib_steps:
     steps:
-      - https://github.com/tothszabi/bitrise-test-steplib.git::script@0.9.0:
+      - https://github.com/tothszabi/bitrise-test/v2-steplib.git::script@0.9.0:
           title: "Full ID"
           inputs:
           - content: |

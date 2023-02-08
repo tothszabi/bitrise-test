@@ -8,7 +8,7 @@ import (
 	"github.com/bitrise-io/go-utils/pointers"
 	stepmanModels "github.com/bitrise-io/stepman/models"
 	"github.com/stretchr/testify/require"
-	"github.com/tothszabi/bitrise-test/models"
+	"github.com/tothszabi/bitrise-test/v2/models"
 )
 
 const longStr = "This is a very long string, this is a very long string, " +

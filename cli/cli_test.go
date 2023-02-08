@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/v2/log"
 )
 
 func Test_loggerParameters(t *testing.T) {

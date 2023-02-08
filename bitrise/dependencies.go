@@ -15,10 +15,10 @@ import (
 	"github.com/bitrise-io/goinp/goinp"
 	stepmanModels "github.com/bitrise-io/stepman/models"
 	ver "github.com/hashicorp/go-version"
-	"github.com/tothszabi/bitrise-test/log"
-	"github.com/tothszabi/bitrise-test/plugins"
-	"github.com/tothszabi/bitrise-test/tools"
-	"github.com/tothszabi/bitrise-test/utils"
+	"github.com/tothszabi/bitrise-test/v2/log"
+	"github.com/tothszabi/bitrise-test/v2/plugins"
+	"github.com/tothszabi/bitrise-test/v2/tools"
+	"github.com/tothszabi/bitrise-test/v2/utils"
 )
 
 var isAptGetUpdated bool

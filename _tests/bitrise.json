@@ -1,6 +1,6 @@
 {
 	"format_version": "0.9.8",
-	"default_step_lib_source": "https://github.com/tothszabi/bitrise-test-steplib.git",
+	"default_step_lib_source": "https://github.com/tothszabi/bitrise-test/v2-steplib.git",
 	"app": {
 		"envs": [
 			{
@@ -13,7 +13,7 @@
 				}
 			},
 			{
-				"GITHUB_RELEASES_URL": "https://github.com/tothszabi/bitrise-test/releases",
+				"GITHUB_RELEASES_URL": "https://github.com/tothszabi/bitrise-test/v2/releases",
 				"opts": {
 					"description": "",
 					"is_required": false,

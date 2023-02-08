@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"runtime"
 
-	"github.com/tothszabi/bitrise-test/log"
-	"github.com/tothszabi/bitrise-test/models"
-	"github.com/tothszabi/bitrise-test/output"
-	"github.com/tothszabi/bitrise-test/version"
+	"github.com/tothszabi/bitrise-test/v2/log"
+	"github.com/tothszabi/bitrise-test/v2/models"
+	"github.com/tothszabi/bitrise-test/v2/output"
+	"github.com/tothszabi/bitrise-test/v2/version"
 	"github.com/urfave/cli"
 )
 

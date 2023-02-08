@@ -12,8 +12,8 @@ import (
 	"github.com/bitrise-io/go-utils/pathutil"
 	"github.com/bitrise-io/go-utils/pointers"
 	stepmanModels "github.com/bitrise-io/stepman/models"
-	"github.com/tothszabi/bitrise-test/log"
-	"github.com/tothszabi/bitrise-test/models"
+	"github.com/tothszabi/bitrise-test/v2/log"
+	"github.com/tothszabi/bitrise-test/v2/models"
 )
 
 type stepActivator struct {

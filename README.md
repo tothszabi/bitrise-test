@@ -12,7 +12,7 @@ For a nice & quick intro you should check: [https://www.bitrise.io/cli](https://
 
 ## Install and Setup
 
-The installation is quick and easy, check the latest release for instructions at: [https://github.com/tothszabi/bitrise-test/releases](https://github.com/tothszabi/bitrise-test/releases)
+The installation is quick and easy, check the latest release for instructions at: [https://github.com/tothszabi/bitrise-test/v2/releases](https://github.com/tothszabi/bitrise-test/v2/releases)
 
 Installing with Homebrew:
 
@@ -26,9 +26,9 @@ You can enable shell completion for the `bitrise run` command: [https://blog.bit
 
 ## Tutorials and Examples
 
-You can find examples in the [\_examples](https://github.com/tothszabi/bitrise-test/tree/master/_examples) folder.
+You can find examples in the [\_examples](https://github.com/tothszabi/bitrise-test/v2/tree/master/_examples) folder.
 
-If you're getting started you should start with [\_examples/tutorials](https://github.com/tothszabi/bitrise-test/tree/master/_examples/tutorials),
+If you're getting started you should start with [\_examples/tutorials](https://github.com/tothszabi/bitrise-test/v2/tree/master/_examples/tutorials),
 this should guide you through the basics, while you'll already use `bitrise` (requires installed `bitrise`).
 
 You can find a complete iOS sample project at: https://github.com/bitrise-io/sample-apps-ios-with-bitrise-yml

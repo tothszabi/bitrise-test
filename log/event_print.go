@@ -7,9 +7,9 @@ import (
 
 	"github.com/bitrise-io/go-utils/colorstring"
 	"github.com/bitrise-io/go-utils/stringutil"
-	"github.com/tothszabi/bitrise-test/log/corelog"
-	"github.com/tothszabi/bitrise-test/models"
-	"github.com/tothszabi/bitrise-test/utils"
+	"github.com/tothszabi/bitrise-test/v2/log/corelog"
+	"github.com/tothszabi/bitrise-test/v2/models"
+	"github.com/tothszabi/bitrise-test/v2/utils"
 )
 
 const (

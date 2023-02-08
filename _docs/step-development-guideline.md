@@ -8,7 +8,7 @@ A step dependency is installed by the `Bitrise CLI` if it is not available in th
 
 Since steps can be performed in any environment where the Bitrise CLI can run, list every used dependency, even if you know that they are pre-installed on the Bitrise stacks.
 
-Step dependencies should not include [toolkit](https://github.com/tothszabi/bitrise-test/blob/master/_docs/bitrise-yml-format-spec.md#step-properties) dependencies, as the Bitrise CLI will take care of installing those automatically.
+Step dependencies should not include [toolkit](https://github.com/tothszabi/bitrise-test/v2/blob/master/_docs/bitrise-yml-format-spec.md#step-properties) dependencies, as the Bitrise CLI will take care of installing those automatically.
 
 For example:
 
@@ -164,7 +164,7 @@ Available `type_tags`:
 - test
 - notification
 
-_Every step should have at least one type_tag, if you feel you would need a new one, or update an existing's name, please [create a github issue](https://github.com/tothszabi/bitrise-test/issues/new), with your suggestion._
+_Every step should have at least one type_tag, if you feel you would need a new one, or update an existing's name, please [create a github issue](https://github.com/tothszabi/bitrise-test/v2/issues/new), with your suggestion._
 
 ## Step icon convention
 
@@ -178,7 +178,7 @@ The step's icon should match with the following criterias:
 Submit your step's icon by:
 
 - adding the svg file into your steplib fork repo at: STEPLIB_FORK_ROOT/steps/YOUR_STEP_ID/assets/icon.svg
-- creating a new pull request to the [steplib repo](https://github.com/tothszabi/bitrise-test-steplib)
+- creating a new pull request to the [steplib repo](https://github.com/tothszabi/bitrise-test/v2-steplib)
 
 ## Provide input for additional command-line arguments
 For steps that are designed to run or wrap around a command-line tool, always provide an input for additional arguments. This is to ensure users can freely customize the execution of such a command-line tool as dedicated inputs for each argument do not necessarily exist.

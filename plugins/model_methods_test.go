@@ -10,7 +10,7 @@ import (
 	"github.com/bitrise-io/go-utils/pathutil"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
-	"github.com/tothszabi/bitrise-test/version"
+	"github.com/tothszabi/bitrise-test/v2/version"
 )
 
 func TestParseAndValidatePluginFromYML(t *testing.T) {

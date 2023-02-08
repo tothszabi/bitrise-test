@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 
 	"github.com/bitrise-io/go-utils/fileutil"
-	"github.com/tothszabi/bitrise-test/log"
-	"github.com/tothszabi/bitrise-test/output"
+	"github.com/tothszabi/bitrise-test/v2/log"
+	"github.com/tothszabi/bitrise-test/v2/output"
 	"github.com/urfave/cli"
 	"gopkg.in/yaml.v2"
 )

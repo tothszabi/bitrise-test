@@ -10,7 +10,7 @@ import (
 	"github.com/bitrise-io/go-utils/pointers"
 	stepmanModels "github.com/bitrise-io/stepman/models"
 	"github.com/ryanuber/go-glob"
-	"github.com/tothszabi/bitrise-test/exitcode"
+	"github.com/tothszabi/bitrise-test/v2/exitcode"
 )
 
 func (triggerItem TriggerMapItemModel) String(printTarget bool) string {
@@ -1130,7 +1130,7 @@ func isStepLibSource(source string) bool {
 //   - Steplib independent step:
 //   - _::https://github.com/bitrise-io/steps-bash-script.git@2.0.0:
 //   - full ID with steplib, stepid and version:
-//   - https://github.com/tothszabi/bitrise-test-steplib.git::script@2.0.0
+//   - https://github.com/tothszabi/bitrise-test/v2-steplib.git::script@2.0.0
 //   - only stepid and version (requires a default steplib source to be provided):
 //   - script@2.0.0
 //   - only stepid, latest version will be used (requires a default steplib source to be provided):

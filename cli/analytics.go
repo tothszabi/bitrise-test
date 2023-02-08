@@ -6,7 +6,7 @@ import (
 	"io"
 
 	"github.com/bitrise-io/envman/models"
-	"github.com/tothszabi/bitrise-test/tools/filterwriter"
+	"github.com/tothszabi/bitrise-test/v2/tools/filterwriter"
 )
 
 func redactStepInputs(environment map[string]string, inputs []models.EnvironmentItemModel, secrets []string) (map[string]string, map[string]string, error) {

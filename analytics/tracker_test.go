@@ -6,7 +6,7 @@ import (
 
 	"github.com/bitrise-io/go-utils/v2/analytics"
 	"github.com/stretchr/testify/require"
-	"github.com/tothszabi/bitrise-test/models"
+	"github.com/tothszabi/bitrise-test/v2/models"
 )
 
 func Test_mapStepResultToEvent(t *testing.T) {

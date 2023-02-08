@@ -23,14 +23,14 @@ import (
 	coreanalytics "github.com/bitrise-io/go-utils/v2/analytics"
 	"github.com/bitrise-io/go-utils/versions"
 	stepmanModels "github.com/bitrise-io/stepman/models"
-	"github.com/tothszabi/bitrise-test/analytics"
-	"github.com/tothszabi/bitrise-test/bitrise"
-	"github.com/tothszabi/bitrise-test/configs"
-	"github.com/tothszabi/bitrise-test/log"
-	"github.com/tothszabi/bitrise-test/log/logwriter"
-	"github.com/tothszabi/bitrise-test/models"
-	"github.com/tothszabi/bitrise-test/toolkits"
-	"github.com/tothszabi/bitrise-test/tools"
+	"github.com/tothszabi/bitrise-test/v2/analytics"
+	"github.com/tothszabi/bitrise-test/v2/bitrise"
+	"github.com/tothszabi/bitrise-test/v2/configs"
+	"github.com/tothszabi/bitrise-test/v2/log"
+	"github.com/tothszabi/bitrise-test/v2/log/logwriter"
+	"github.com/tothszabi/bitrise-test/v2/models"
+	"github.com/tothszabi/bitrise-test/v2/toolkits"
+	"github.com/tothszabi/bitrise-test/v2/tools"
 )
 
 func isPRMode(prGlobalFlagPtr *bool, inventoryEnvironments []envmanModels.EnvironmentItemModel) (bool, error) {

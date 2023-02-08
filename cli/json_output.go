@@ -5,7 +5,7 @@ import (
 	"io"
 	"os"
 
-	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/v2/log"
 )
 
 // Logger ...

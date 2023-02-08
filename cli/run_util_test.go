@@ -11,9 +11,9 @@ import (
 	"github.com/bitrise-io/go-utils/pathutil"
 	"github.com/bitrise-io/go-utils/pointers"
 	"github.com/stretchr/testify/require"
-	"github.com/tothszabi/bitrise-test/bitrise"
-	"github.com/tothszabi/bitrise-test/configs"
-	"github.com/tothszabi/bitrise-test/models"
+	"github.com/tothszabi/bitrise-test/v2/bitrise"
+	"github.com/tothszabi/bitrise-test/v2/configs"
+	"github.com/tothszabi/bitrise-test/v2/models"
 )
 
 func TestIsSecretFiltering(t *testing.T) {
@@ -324,7 +324,7 @@ envs:
 func TestGetBitriseConfigFromBase64Data(t *testing.T) {
 	configStr := `
 format_version: 0.9.10
-default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test/v2-steplib.git"
 
 workflows:
   target:
@@ -338,7 +338,7 @@ workflows:
 	require.Equal(t, 0, len(warnings))
 
 	require.Equal(t, "0.9.10", config.FormatVersion)
-	require.Equal(t, "https://github.com/tothszabi/bitrise-test-steplib.git", config.DefaultStepLibSource)
+	require.Equal(t, "https://github.com/tothszabi/bitrise-test/v2-steplib.git", config.DefaultStepLibSource)
 
 	workflow, found := config.Workflows["target"]
 	require.Equal(t, true, found)
@@ -468,7 +468,7 @@ func Test_activateStepLibStep(t *testing.T) {
 		{
 			name: "Major version lock",
 			stepIDData: models.StepIDData{
-				SteplibSource: "https://github.com/tothszabi/bitrise-test-steplib.git",
+				SteplibSource: "https://github.com/tothszabi/bitrise-test/v2-steplib.git",
 				IDorURI:       "xcode-archive",
 				Version:       "1",
 			},
@@ -478,7 +478,7 @@ func Test_activateStepLibStep(t *testing.T) {
 		{
 			name: "Major version lock (long form)",
 			stepIDData: models.StepIDData{
-				SteplibSource: "https://github.com/tothszabi/bitrise-test-steplib.git",
+				SteplibSource: "https://github.com/tothszabi/bitrise-test/v2-steplib.git",
 				IDorURI:       "xcode-archive",
 				Version:       "1.x.x",
 			},
@@ -488,7 +488,7 @@ func Test_activateStepLibStep(t *testing.T) {
 		{
 			name: "Minor version lock",
 			stepIDData: models.StepIDData{
-				SteplibSource: "https://github.com/tothszabi/bitrise-test-steplib.git",
+				SteplibSource: "https://github.com/tothszabi/bitrise-test/v2-steplib.git",
 				IDorURI:       "xcode-archive",
 				Version:       "2.3",
 			},
@@ -498,7 +498,7 @@ func Test_activateStepLibStep(t *testing.T) {
 		{
 			name: "Minor version lock (long form)",
 			stepIDData: models.StepIDData{
-				SteplibSource: "https://github.com/tothszabi/bitrise-test-steplib.git",
+				SteplibSource: "https://github.com/tothszabi/bitrise-test/v2-steplib.git",
 				IDorURI:       "xcode-archive",
 				Version:       "2.3.x",
 			},
@@ -508,7 +508,7 @@ func Test_activateStepLibStep(t *testing.T) {
 		{
 			name: "Patch version lock",
 			stepIDData: models.StepIDData{
-				SteplibSource: "https://github.com/tothszabi/bitrise-test-steplib.git",
+				SteplibSource: "https://github.com/tothszabi/bitrise-test/v2-steplib.git",
 				IDorURI:       "xcode-archive",
 				Version:       "2.3.2",
 			},
@@ -518,7 +518,7 @@ func Test_activateStepLibStep(t *testing.T) {
 		{
 			name: "Invalid version lock",
 			stepIDData: models.StepIDData{
-				SteplibSource: "https://github.com/tothszabi/bitrise-test-steplib.git",
+				SteplibSource: "https://github.com/tothszabi/bitrise-test/v2-steplib.git",
 				IDorURI:       "xcode-archive",
 				Version:       "1.2.3.4",
 			},
@@ -528,7 +528,7 @@ func Test_activateStepLibStep(t *testing.T) {
 		{
 			name: "Latest version (not supported at the moment)",
 			stepIDData: models.StepIDData{
-				SteplibSource: "https://github.com/tothszabi/bitrise-test-steplib.git",
+				SteplibSource: "https://github.com/tothszabi/bitrise-test/v2-steplib.git",
 				IDorURI:       "xcode-archive",
 				Version:       "x.x.x",
 			},

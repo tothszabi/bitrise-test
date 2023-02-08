@@ -9,7 +9,7 @@ import (
 
 	envmanModels "github.com/bitrise-io/envman/models"
 	"github.com/bitrise-io/goinp/goinp"
-	"github.com/tothszabi/bitrise-test/models"
+	"github.com/tothszabi/bitrise-test/v2/models"
 )
 
 // TemplateDataModel ...

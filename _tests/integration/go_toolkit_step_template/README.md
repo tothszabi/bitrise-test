@@ -6,7 +6,7 @@ a new Step.
 
 ## How to use this Step
 
-Can be run directly with the [bitrise CLI](https://github.com/tothszabi/bitrise-test),
+Can be run directly with the [bitrise CLI](https://github.com/tothszabi/bitrise-test/v2),
 just `git clone` this repository, `cd` into it's folder in your Terminal/Command Line
 and call `bitrise run test`.
 
@@ -16,4 +16,4 @@ added to your `.bitrise.secrets.yml` file!*
 
 ## Share your own Step
 
-You can share your Step or step version with the [bitrise CLI](https://github.com/tothszabi/bitrise-test). Just run `bitrise share` and follow the guide it prints.
+You can share your Step or step version with the [bitrise CLI](https://github.com/tothszabi/bitrise-test/v2). Just run `bitrise share` and follow the guide it prints.

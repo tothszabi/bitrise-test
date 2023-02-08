@@ -5,7 +5,7 @@ import (
 
 	"github.com/bitrise-io/go-utils/command"
 	"github.com/stretchr/testify/require"
-	"github.com/tothszabi/bitrise-test/configs"
+	"github.com/tothszabi/bitrise-test/v2/configs"
 )
 
 func Test_GlobalFlagPRRun(t *testing.T) {

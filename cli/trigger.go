@@ -6,10 +6,10 @@ import (
 	"strings"
 
 	"github.com/bitrise-io/go-utils/pointers"
-	"github.com/tothszabi/bitrise-test/analytics"
-	"github.com/tothszabi/bitrise-test/configs"
-	"github.com/tothszabi/bitrise-test/log"
-	"github.com/tothszabi/bitrise-test/models"
+	"github.com/tothszabi/bitrise-test/v2/analytics"
+	"github.com/tothszabi/bitrise-test/v2/configs"
+	"github.com/tothszabi/bitrise-test/v2/log"
+	"github.com/tothszabi/bitrise-test/v2/models"
 	"github.com/urfave/cli"
 )
 

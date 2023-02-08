@@ -7,8 +7,8 @@ import (
 
 	envmanModels "github.com/bitrise-io/envman/models"
 	"github.com/stretchr/testify/require"
-	"github.com/tothszabi/bitrise-test/configs"
-	"github.com/tothszabi/bitrise-test/models"
+	"github.com/tothszabi/bitrise-test/v2/configs"
+	"github.com/tothszabi/bitrise-test/v2/models"
 )
 
 func TestEvaluateStepTemplateToBool(t *testing.T) {

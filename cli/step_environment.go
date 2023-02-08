@@ -6,8 +6,8 @@ import (
 	"github.com/bitrise-io/envman/env"
 	envmanModels "github.com/bitrise-io/envman/models"
 	"github.com/bitrise-io/go-utils/parseutil"
-	"github.com/tothszabi/bitrise-test/bitrise"
-	"github.com/tothszabi/bitrise-test/models"
+	"github.com/tothszabi/bitrise-test/v2/bitrise"
+	"github.com/tothszabi/bitrise-test/v2/models"
 )
 
 type prepareStepInputParams struct {
