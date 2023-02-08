@@ -5,15 +5,15 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/bitrise-io/bitrise/analytics"
-	"github.com/bitrise-io/bitrise/exitcode"
-	"github.com/bitrise-io/bitrise/log"
-	"github.com/bitrise-io/bitrise/models"
-	"github.com/bitrise-io/bitrise/tools/timeoutcmd"
-	"github.com/bitrise-io/bitrise/utils"
 	"github.com/bitrise-io/go-utils/pointers"
 	coreanalytics "github.com/bitrise-io/go-utils/v2/analytics"
 	stepmanModels "github.com/bitrise-io/stepman/models"
+	"github.com/tothszabi/bitrise-test/analytics"
+	"github.com/tothszabi/bitrise-test/exitcode"
+	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/models"
+	"github.com/tothszabi/bitrise-test/tools/timeoutcmd"
+	"github.com/tothszabi/bitrise-test/utils"
 )
 
 type buildRunResultCollector struct {

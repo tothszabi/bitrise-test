@@ -1,7 +1,7 @@
 package cli
 
 import (
-	"github.com/bitrise-io/bitrise/configs"
+	"github.com/tothszabi/bitrise-test/configs"
 	"github.com/urfave/cli"
 )
 

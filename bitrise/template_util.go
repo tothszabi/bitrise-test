@@ -7,9 +7,9 @@ import (
 	"strings"
 	"text/template"
 
-	"github.com/bitrise-io/bitrise/models"
 	envmanModels "github.com/bitrise-io/envman/models"
 	"github.com/bitrise-io/goinp/goinp"
+	"github.com/tothszabi/bitrise-test/models"
 )
 
 // TemplateDataModel ...

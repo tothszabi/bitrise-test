@@ -1,5 +1,5 @@
 format_version: 0.9.8
-default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+default_step_lib_source: https://github.com/tothszabi/bitrise-test-steplib.git
 
 trigger_map:
 - pattern: master
@@ -55,4 +55,4 @@ workflows:
   before:
     title: Primary workflow
     steps:
-    - https://github.com/bitrise-io/bitrise-steplib.git::timestamp:
+    - https://github.com/tothszabi/bitrise-test-steplib.git::timestamp:

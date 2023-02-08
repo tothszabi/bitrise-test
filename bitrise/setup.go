@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"runtime"
 
-	"github.com/bitrise-io/bitrise/configs"
-	"github.com/bitrise-io/bitrise/log"
-	"github.com/bitrise-io/bitrise/plugins"
-	"github.com/bitrise-io/bitrise/toolkits"
-	"github.com/bitrise-io/bitrise/version"
 	"github.com/bitrise-io/go-utils/colorstring"
+	"github.com/tothszabi/bitrise-test/configs"
+	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/plugins"
+	"github.com/tothszabi/bitrise-test/toolkits"
+	"github.com/tothszabi/bitrise-test/version"
 )
 
 const (
@@ -27,19 +27,19 @@ type PluginDependency struct {
 // PluginDependencyMap ...
 var PluginDependencyMap = map[string]PluginDependency{
 	"init": {
-		Source:     "https://github.com/bitrise-io/bitrise-plugins-init.git",
+		Source:     "https://github.com/tothszabi/bitrise-test-plugins-init.git",
 		MinVersion: "1.10.0",
 	},
 	"step": {
-		Source:     "https://github.com/bitrise-io/bitrise-plugins-step.git",
+		Source:     "https://github.com/tothszabi/bitrise-test-plugins-step.git",
 		MinVersion: "0.10.3",
 	},
 	"workflow-editor": {
-		Source:     "https://github.com/bitrise-io/bitrise-workflow-editor.git",
+		Source:     "https://github.com/tothszabi/bitrise-test-workflow-editor.git",
 		MinVersion: "1.3.135",
 	},
 	"analytics": {
-		Source:     "https://github.com/bitrise-io/bitrise-plugins-analytics.git",
+		Source:     "https://github.com/tothszabi/bitrise-test-plugins-analytics.git",
 		MinVersion: "0.13.0",
 	},
 }

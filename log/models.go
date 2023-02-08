@@ -1,6 +1,6 @@
 package log
 
-import "github.com/bitrise-io/bitrise/models"
+import "github.com/tothszabi/bitrise-test/models"
 
 // StepStartedParams ...
 type StepStartedParams struct {

@@ -3,11 +3,11 @@ package cli
 import (
 	"fmt"
 
-	"github.com/bitrise-io/bitrise/bitrise"
-	"github.com/bitrise-io/bitrise/models"
 	"github.com/bitrise-io/envman/env"
 	envmanModels "github.com/bitrise-io/envman/models"
 	"github.com/bitrise-io/go-utils/parseutil"
+	"github.com/tothszabi/bitrise-test/bitrise"
+	"github.com/tothszabi/bitrise-test/models"
 )
 
 type prepareStepInputParams struct {

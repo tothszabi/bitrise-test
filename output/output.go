@@ -6,7 +6,7 @@ import (
 
 	"gopkg.in/yaml.v2"
 
-	"github.com/bitrise-io/bitrise/log"
+	"github.com/tothszabi/bitrise-test/log"
 	"github.com/urfave/cli"
 )
 

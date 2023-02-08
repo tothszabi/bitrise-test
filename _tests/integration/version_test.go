@@ -5,9 +5,9 @@ import (
 	"runtime"
 	"testing"
 
-	"github.com/bitrise-io/bitrise/version"
 	"github.com/bitrise-io/go-utils/command"
 	"github.com/stretchr/testify/require"
+	"github.com/tothszabi/bitrise-test/version"
 )
 
 func Test_VersionOutput(t *testing.T) {

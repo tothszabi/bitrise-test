@@ -1,5 +1,5 @@
 format_version: 0.9.8
-default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+default_step_lib_source: https://github.com/tothszabi/bitrise-test-steplib.git
 app:
   envs:
   - BITRISE_PROJECT_TITLE: MyTit1
@@ -62,7 +62,7 @@ workflows:
             #!/bin/bash
             set -v
             echo 'This is a before workflow'
-    - https://github.com/bitrise-io/bitrise-steplib.git::timestamp:
+    - https://github.com/tothszabi/bitrise-test-steplib.git::timestamp:
         outputs:
         - UNIX_TIMESTAMP: null
           opts:

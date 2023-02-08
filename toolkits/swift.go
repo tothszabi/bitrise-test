@@ -1,9 +1,9 @@
 package toolkits
 
 import (
-	"github.com/bitrise-io/bitrise/models"
-	"github.com/bitrise-io/bitrise/utils"
 	stepmanModels "github.com/bitrise-io/stepman/models"
+	"github.com/tothszabi/bitrise-test/models"
+	"github.com/tothszabi/bitrise-test/utils"
 	"io"
 	"net/http"
 	"os"

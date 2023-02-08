@@ -11,11 +11,6 @@ import (
 	"runtime"
 	"time"
 
-	"github.com/bitrise-io/bitrise/configs"
-	"github.com/bitrise-io/bitrise/log"
-	"github.com/bitrise-io/bitrise/tools/errorfinder"
-	"github.com/bitrise-io/bitrise/tools/filterwriter"
-	"github.com/bitrise-io/bitrise/tools/timeoutcmd"
 	envman "github.com/bitrise-io/envman/cli"
 	envmanEnv "github.com/bitrise-io/envman/env"
 	envmanModels "github.com/bitrise-io/envman/models"
@@ -23,6 +18,11 @@ import (
 	"github.com/bitrise-io/go-utils/pathutil"
 	stepman "github.com/bitrise-io/stepman/cli"
 	stepmanModels "github.com/bitrise-io/stepman/models"
+	"github.com/tothszabi/bitrise-test/configs"
+	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/tools/errorfinder"
+	"github.com/tothszabi/bitrise-test/tools/filterwriter"
+	"github.com/tothszabi/bitrise-test/tools/timeoutcmd"
 	"golang.org/x/sys/unix"
 )
 

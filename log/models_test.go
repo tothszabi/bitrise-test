@@ -4,8 +4,8 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/bitrise-io/bitrise/models"
 	"github.com/stretchr/testify/assert"
+	"github.com/tothszabi/bitrise-test/models"
 )
 
 func TestStepStartedEventSerialisesToTheExpectedJsonMessage(t *testing.T) {

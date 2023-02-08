@@ -2,7 +2,7 @@
 # This experimental upload&download will only work with the new bitrise.io API!
 #
 format_version: 1.1.0
-default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+default_step_lib_source: https://github.com/tothszabi/bitrise-test-steplib.git
 
 app:
   envs:

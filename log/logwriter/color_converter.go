@@ -6,7 +6,7 @@ import (
 	"strings"
 	"unicode"
 
-	"github.com/bitrise-io/bitrise/log/corelog"
+	"github.com/tothszabi/bitrise-test/log/corelog"
 )
 
 var ansiEscapeCodeToLevel = map[corelog.ANSIColorCode]corelog.Level{

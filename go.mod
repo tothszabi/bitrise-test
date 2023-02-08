@@ -14,7 +14,6 @@ require (
 	github.com/ryanuber/go-glob v1.0.0
 	github.com/stretchr/testify v1.7.1
 	github.com/urfave/cli v1.22.5
-	golang.org/x/crypto v0.0.0-20220315160706-3147a52a75dd // indirect
 	golang.org/x/sys v0.0.0-20220712014510-0a85c31ab51e
 	gopkg.in/yaml.v2 v2.4.0
 )

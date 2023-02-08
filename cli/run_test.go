@@ -10,17 +10,17 @@ import (
 	"testing"
 	"time"
 
-	cliAnalytics "github.com/bitrise-io/bitrise/analytics"
-	"github.com/bitrise-io/bitrise/bitrise"
-	"github.com/bitrise-io/bitrise/configs"
-	"github.com/bitrise-io/bitrise/log"
-	"github.com/bitrise-io/bitrise/models"
-	"github.com/bitrise-io/bitrise/plugins"
 	"github.com/bitrise-io/go-utils/fileutil"
 	"github.com/bitrise-io/go-utils/pathutil"
 	"github.com/bitrise-io/go-utils/v2/analytics"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	cliAnalytics "github.com/tothszabi/bitrise-test/analytics"
+	"github.com/tothszabi/bitrise-test/bitrise"
+	"github.com/tothszabi/bitrise-test/configs"
+	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/models"
+	"github.com/tothszabi/bitrise-test/plugins"
 )
 
 func TestSkipIfEmpty(t *testing.T) {
@@ -28,7 +28,7 @@ func TestSkipIfEmpty(t *testing.T) {
 	{
 		configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   skip_if_empty:
@@ -70,7 +70,7 @@ workflows:
 	{
 		configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   skip_if_empty:
@@ -111,7 +111,7 @@ workflows:
 func TestDeleteEnvironment(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   test:
@@ -177,7 +177,7 @@ envs:
 
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 app:
   envs:
@@ -236,7 +236,7 @@ workflows:
 func TestFailedStepOutputs(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   test:
@@ -309,7 +309,7 @@ envs:
 
 		configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   test:
@@ -348,7 +348,7 @@ envs:
 
 		configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 app:
   envs:
@@ -391,7 +391,7 @@ envs:
 
 		configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 app:
   envs:
@@ -436,7 +436,7 @@ envs:
 
 		configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 app:
   envs:
@@ -490,7 +490,7 @@ envs:
 
 		configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   test:
@@ -530,7 +530,7 @@ envs:
 
 		configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 app:
   envs:
@@ -575,7 +575,7 @@ envs:
 
 		configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 app:
   envs:
@@ -621,7 +621,7 @@ envs:
 
 		configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 app:
   envs:
@@ -668,7 +668,7 @@ func Test0Steps1Workflows(t *testing.T) {
 
 	config := models.BitriseDataModel{
 		FormatVersion:        "1.0.0",
-		DefaultStepLibSource: "https://github.com/bitrise-io/bitrise-steplib.git",
+		DefaultStepLibSource: "https://github.com/tothszabi/bitrise-test-steplib.git",
 		Workflows: map[string]models.WorkflowModel{
 			"zero_steps": workflow,
 		},
@@ -712,7 +712,7 @@ func Test0Steps3WorkflowsBeforeAfter(t *testing.T) {
 
 	config := models.BitriseDataModel{
 		FormatVersion:        "1.0.0",
-		DefaultStepLibSource: "https://github.com/bitrise-io/bitrise-steplib.git",
+		DefaultStepLibSource: "https://github.com/tothszabi/bitrise-test-steplib.git",
 		Workflows: map[string]models.WorkflowModel{
 			"target": workflow,
 			"before": beforeWorkflow,
@@ -748,7 +748,7 @@ func Test0Steps3WorkflowsBeforeAfter(t *testing.T) {
 func Test1Workflows(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   trivial_fail:
@@ -807,7 +807,7 @@ workflows:
 func Test3Workflows(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   before1:
@@ -889,7 +889,7 @@ workflows:
 func TestBuildStatusEnv(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   before1:
@@ -997,7 +997,7 @@ workflows:
 func TestFail(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   target:
@@ -1054,7 +1054,7 @@ workflows:
 func TestSuccess(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   target:
@@ -1089,7 +1089,7 @@ workflows:
 func TestBuildFailedMode(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   before1:
@@ -1147,7 +1147,7 @@ workflows:
 func TestWorkflowEnvironments(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   before:
@@ -1208,7 +1208,7 @@ workflows:
 func TestWorkflowEnvironmentOverWrite(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   before:
@@ -1269,7 +1269,7 @@ workflows:
 func TestTargetDefinedWorkflowEnvironment(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   before:
@@ -1318,7 +1318,7 @@ workflows:
 func TestStepInputEnvironment(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   before:
@@ -1375,7 +1375,7 @@ workflows:
 func TestStepOutputEnvironment(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   out-test:
@@ -1439,7 +1439,7 @@ workflows:
 func TestExpandEnvs(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   test:
@@ -1482,7 +1482,7 @@ workflows:
 func TestEvaluateInputs(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   test:
@@ -1536,7 +1536,7 @@ workflows:
 func TestInvalidStepID(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   target:
@@ -1562,7 +1562,7 @@ workflows:
 func TestPluginTriggered(t *testing.T) {
 	bitriseYML := `
   format_version: 1.3.0
-  default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+  default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
   
   workflows:
     test:

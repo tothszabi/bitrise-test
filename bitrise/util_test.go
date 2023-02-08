@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/bitrise-io/bitrise/configs"
 	envmanModels "github.com/bitrise-io/envman/models"
 	stepmanModels "github.com/bitrise-io/stepman/models"
 	"github.com/stretchr/testify/require"
+	"github.com/tothszabi/bitrise-test/configs"
 )
 
 func TestApplyOutputAliases(t *testing.T) {
@@ -79,7 +79,7 @@ func TestRemoveConfigRedundantFieldsAndFillStepOutputs(t *testing.T) {
 
 	configStr := `
   format_version: 1.3.0
-  default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+  default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
   workflows:
     remove_test:
@@ -219,7 +219,7 @@ func TestIsDependencySliceWithSameElements(t *testing.T) {
 func TestConfigModelFromYAMLBytes(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   trivial_fail:
@@ -262,7 +262,7 @@ func TestConfigModelFromJSONBytes(t *testing.T) {
 	configStr := `
 {
   "format_version": "1.0.0",
-  "default_step_lib_source": "https://github.com/bitrise-io/bitrise-steplib.git",
+  "default_step_lib_source": "https://github.com/tothszabi/bitrise-test-steplib.git",
   "app": {
     "envs": null
   },
@@ -341,14 +341,14 @@ func TestConfigModelFromJSONBytes(t *testing.T) {
 func TestConfigModelFromYAMLBytesNormalize(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 app:
   envs:
   - BITRISE_BIN_NAME: bitrise
     opts:
       is_expand: false
-  - GITHUB_RELEASES_URL: https://github.com/bitrise-io/bitrise/releases
+  - GITHUB_RELEASES_URL: https://github.com/tothszabi/bitrise-test/releases
     opts:
       is_expand: false
 
@@ -376,7 +376,7 @@ func TestConfigModelFromJSONBytesNormalize(t *testing.T) {
 	configStr := `
 {
   "format_version": "1.0.0",
-  "default_step_lib_source": "https://github.com/bitrise-io/bitrise-steplib.git",
+  "default_step_lib_source": "https://github.com/tothszabi/bitrise-test-steplib.git",
   "app": {
     "envs": [
       {
@@ -386,7 +386,7 @@ func TestConfigModelFromJSONBytesNormalize(t *testing.T) {
         }
       },
       {
-        "GITHUB_RELEASES_URL": "https://github.com/bitrise-io/bitrise/releases",
+        "GITHUB_RELEASES_URL": "https://github.com/tothszabi/bitrise-test/releases",
         "opts": {
           "is_expand": false
         }
@@ -430,7 +430,7 @@ func TestConfigModelFromJSONBytesNormalize(t *testing.T) {
 func TestConfigModelFromYAMLBytesReferenceCycle(t *testing.T) {
 	configStr := `
 format_version: 1.3.0
-default_step_lib_source: "https://github.com/bitrise-io/bitrise-steplib.git"
+default_step_lib_source: "https://github.com/tothszabi/bitrise-test-steplib.git"
 
 workflows:
   before1:

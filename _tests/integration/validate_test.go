@@ -19,7 +19,7 @@ const invalidSecret = `- TEST: test`
 const emptyBitriseYML = ""
 const spaceBitriseYML = ` `
 const invalidPipelineIDBitriseYML = `format_version: 11
-default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+default_step_lib_source: https://github.com/tothszabi/bitrise-test-steplib.git
 
 pipelines:
   invalid:id:
@@ -35,7 +35,7 @@ workflows:
   workflow1:
 `
 const invalidWorkflowIDBitriseYML = `format_version: 1.3.0
-default_step_lib_source: https://github.com/bitrise-io/bitrise-steplib.git
+default_step_lib_source: https://github.com/tothszabi/bitrise-test-steplib.git
 
 workflows:
   invalid:id:

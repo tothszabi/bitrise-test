@@ -5,7 +5,7 @@ import (
 
 	"fmt"
 
-	"github.com/bitrise-io/bitrise/plugins"
+	"github.com/tothszabi/bitrise-test/plugins"
 )
 
 const (

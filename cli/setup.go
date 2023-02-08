@@ -3,8 +3,8 @@ package cli
 import (
 	"os"
 
-	"github.com/bitrise-io/bitrise/bitrise"
-	"github.com/bitrise-io/bitrise/log"
+	"github.com/tothszabi/bitrise-test/bitrise"
+	"github.com/tothszabi/bitrise-test/log"
 	"github.com/urfave/cli"
 )
 

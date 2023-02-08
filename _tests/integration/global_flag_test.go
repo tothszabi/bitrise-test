@@ -3,9 +3,9 @@ package integration
 import (
 	"testing"
 
-	"github.com/bitrise-io/bitrise/configs"
 	"github.com/bitrise-io/go-utils/command"
 	"github.com/stretchr/testify/require"
+	"github.com/tothszabi/bitrise-test/configs"
 )
 
 func Test_GlobalFlagPRRun(t *testing.T) {

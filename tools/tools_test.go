@@ -10,10 +10,10 @@ import (
 
 	"github.com/bitrise-io/envman/models"
 
-	"github.com/bitrise-io/bitrise/configs"
 	"github.com/bitrise-io/go-utils/command"
 	"github.com/bitrise-io/go-utils/pathutil"
 	"github.com/stretchr/testify/require"
+	"github.com/tothszabi/bitrise-test/configs"
 )
 
 func TestMoveFile(t *testing.T) {
@@ -78,14 +78,14 @@ func TestStepmanJSONStepLibStepInfo(t *testing.T) {
 	require.NoError(t, configs.InitPaths())
 
 	// Valid params -- Err should empty, output filled
-	require.Equal(t, nil, StepmanSetup("https://github.com/bitrise-io/bitrise-steplib"))
+	require.Equal(t, nil, StepmanSetup("https://github.com/tothszabi/bitrise-test-steplib"))
 
-	info, err := StepmanStepInfo("https://github.com/bitrise-io/bitrise-steplib", "script", "0.9.0")
+	info, err := StepmanStepInfo("https://github.com/tothszabi/bitrise-test-steplib", "script", "0.9.0")
 	require.NoError(t, err)
 	require.NotEqual(t, "", info.JSON())
 
 	// Invalid params -- Err returned, output is invalid
-	info, err = StepmanStepInfo("https://github.com/bitrise-io/bitrise-steplib", "script", "2.x")
+	info, err = StepmanStepInfo("https://github.com/tothszabi/bitrise-test-steplib", "script", "2.x")
 	require.Error(t, err)
 }
 

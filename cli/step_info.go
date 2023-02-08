@@ -3,9 +3,9 @@ package cli
 import (
 	"fmt"
 
-	"github.com/bitrise-io/bitrise/log"
-	"github.com/bitrise-io/bitrise/output"
-	"github.com/bitrise-io/bitrise/tools"
+	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/output"
+	"github.com/tothszabi/bitrise-test/tools"
 	"github.com/urfave/cli"
 )
 

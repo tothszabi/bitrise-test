@@ -6,8 +6,8 @@ import (
 	"strings"
 	"time"
 
-	"github.com/bitrise-io/bitrise/log/corelog"
-	"github.com/bitrise-io/bitrise/models"
+	"github.com/tothszabi/bitrise-test/log/corelog"
+	"github.com/tothszabi/bitrise-test/models"
 )
 
 const rfc3339MicroTimeLayout = "2006-01-02T15:04:05.999999Z07:00"

@@ -9,9 +9,9 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/bitrise-io/bitrise/log"
-	"github.com/bitrise-io/bitrise/models"
 	"github.com/stretchr/testify/require"
+	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/models"
 )
 
 func TestConsoleLogCanBeRestoredFromJSONLog(t *testing.T) {
@@ -150,7 +150,7 @@ func convertStepFinishedEventLog(line []byte) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	
+
 	var buf bytes.Buffer
 	logger := log.NewLogger(log.LoggerOpts{LoggerType: log.ConsoleLogger, Writer: &buf})
 	logger.PrintStepFinishedEvent(eventLog.Content)

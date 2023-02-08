@@ -3,8 +3,8 @@ package logwriter
 import (
 	"testing"
 
-	"github.com/bitrise-io/bitrise/log/corelog"
 	"github.com/stretchr/testify/assert"
+	"github.com/tothszabi/bitrise-test/log/corelog"
 )
 
 func Test_converterConversion(t *testing.T) {

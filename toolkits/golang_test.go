@@ -7,9 +7,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/bitrise-io/bitrise/models"
 	"github.com/bitrise-io/go-utils/command"
 	"github.com/stretchr/testify/require"
+	"github.com/tothszabi/bitrise-test/models"
 )
 
 func Test_stepBinaryFilename(t *testing.T) {
@@ -34,7 +34,7 @@ func Test_stepBinaryFilename(t *testing.T) {
 	}
 
 	{
-		sIDData := models.StepIDData{SteplibSource: "https://github.com/bitrise-io/bitrise-steplib.git", IDorURI: "script", Version: "1.2.3"}
+		sIDData := models.StepIDData{SteplibSource: "https://github.com/tothszabi/bitrise-test-steplib.git", IDorURI: "script", Version: "1.2.3"}
 		require.Equal(t, "https___github.com_bitrise-io_bitrise-steplib.git-script-1.2.3", stepBinaryFilename(sIDData))
 	}
 }
@@ -233,7 +233,7 @@ func Benchmark_goBuildStep(b *testing.B) {
 	}()
 
 	stepmanCmd := command.New("stepman", "activate",
-		"--collection", "https://github.com/bitrise-io/bitrise-steplib",
+		"--collection", "https://github.com/tothszabi/bitrise-test-steplib",
 		"--id", "xcode-test",
 		"--version", "2.5.0", "--update",
 		"--path", stepDir)

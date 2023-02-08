@@ -3,10 +3,10 @@ package cli
 import (
 	"fmt"
 
-	"github.com/bitrise-io/bitrise/bitrise"
-	"github.com/bitrise-io/bitrise/log"
-	"github.com/bitrise-io/bitrise/plugins"
-	"github.com/bitrise-io/bitrise/version"
+	"github.com/tothszabi/bitrise-test/bitrise"
+	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/plugins"
+	"github.com/tothszabi/bitrise-test/version"
 	"github.com/urfave/cli"
 )
 

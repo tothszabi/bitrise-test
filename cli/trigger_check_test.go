@@ -3,8 +3,8 @@ package cli
 import (
 	"testing"
 
-	"github.com/bitrise-io/bitrise/bitrise"
 	"github.com/stretchr/testify/require"
+	"github.com/tothszabi/bitrise-test/bitrise"
 )
 
 func TestMigratePatternToParams(t *testing.T) {

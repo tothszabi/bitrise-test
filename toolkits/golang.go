@@ -10,11 +10,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/bitrise-io/bitrise/configs"
-	"github.com/bitrise-io/bitrise/log"
-	"github.com/bitrise-io/bitrise/models"
-	"github.com/bitrise-io/bitrise/tools"
-	"github.com/bitrise-io/bitrise/utils"
 	"github.com/bitrise-io/go-utils/command"
 	"github.com/bitrise-io/go-utils/pathutil"
 	"github.com/bitrise-io/go-utils/progress"
@@ -22,6 +17,11 @@ import (
 	"github.com/bitrise-io/go-utils/versions"
 	"github.com/bitrise-io/gows/gows"
 	stepmanModels "github.com/bitrise-io/stepman/models"
+	"github.com/tothszabi/bitrise-test/configs"
+	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/models"
+	"github.com/tothszabi/bitrise-test/tools"
+	"github.com/tothszabi/bitrise-test/utils"
 )
 
 // === Base Toolkit struct ===

@@ -3,8 +3,8 @@ package cli
 import (
 	"testing"
 
-	"github.com/bitrise-io/bitrise/log"
 	"github.com/stretchr/testify/assert"
+	"github.com/tothszabi/bitrise-test/log"
 )
 
 func Test_loggerParameters(t *testing.T) {
