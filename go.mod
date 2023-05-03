@@ -1,4 +1,4 @@
-module github.com/tothszabi/bitrise-test
+module github.com/tothszabi/bitrise-test/v2
 
 go 1.17
 
