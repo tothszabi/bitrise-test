@@ -5,8 +5,8 @@ import (
 	"testing"
 	"time"
 
-	"github.com/bitrise-io/bitrise/log"
 	"github.com/stretchr/testify/require"
+	"github.com/tothszabi/bitrise-test/log"
 )
 
 func Test_GivenWriter_WhenConsoleLogging_ThenTransmitsLogs(t *testing.T) {

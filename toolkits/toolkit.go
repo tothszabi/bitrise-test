@@ -1,8 +1,8 @@
 package toolkits
 
 import (
-	"github.com/bitrise-io/bitrise/models"
 	stepmanModels "github.com/bitrise-io/stepman/models"
+	"github.com/tothszabi/bitrise-test/models"
 )
 
 // ToolkitCheckResult ...

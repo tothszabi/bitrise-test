@@ -3,10 +3,10 @@ package stepoutput
 import (
 	"io"
 
-	"github.com/bitrise-io/bitrise/log"
-	"github.com/bitrise-io/bitrise/log/logwriter"
-	"github.com/bitrise-io/bitrise/tools/errorfinder"
-	"github.com/bitrise-io/bitrise/tools/filterwriter"
+	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/log/logwriter"
+	"github.com/tothszabi/bitrise-test/tools/errorfinder"
+	"github.com/tothszabi/bitrise-test/tools/filterwriter"
 )
 
 type Writer struct {

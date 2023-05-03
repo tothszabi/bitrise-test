@@ -5,12 +5,12 @@ import (
 	"fmt"
 	"runtime"
 
-	"github.com/bitrise-io/bitrise/configs"
-	"github.com/bitrise-io/bitrise/log"
-	"github.com/bitrise-io/bitrise/plugins"
-	"github.com/bitrise-io/bitrise/toolkits"
-	"github.com/bitrise-io/bitrise/version"
 	"github.com/bitrise-io/go-utils/colorstring"
+	"github.com/tothszabi/bitrise-test/configs"
+	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/plugins"
+	"github.com/tothszabi/bitrise-test/toolkits"
+	"github.com/tothszabi/bitrise-test/version"
 )
 
 const (

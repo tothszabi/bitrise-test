@@ -6,11 +6,11 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/bitrise-io/bitrise/exitcode"
 	envmanModels "github.com/bitrise-io/envman/models"
 	"github.com/bitrise-io/go-utils/pointers"
 	stepmanModels "github.com/bitrise-io/stepman/models"
 	"github.com/ryanuber/go-glob"
+	"github.com/tothszabi/bitrise-test/exitcode"
 )
 
 func (triggerItem TriggerMapItemModel) String(printTarget bool) string {
@@ -1123,18 +1123,18 @@ func isStepLibSource(source string) bool {
 
 // CreateStepIDDataFromString ...
 // compositeVersionStr examples:
-//  * local path:
-//    * path::~/path/to/step/dir
-//  * direct git url and branch or tag:
-//    * git::https://github.com/bitrise-io/steps-timestamp.git@master
-//  * Steplib independent step:
-//    * _::https://github.com/bitrise-io/steps-bash-script.git@2.0.0:
-//  * full ID with steplib, stepid and version:
-//    * https://github.com/bitrise-io/bitrise-steplib.git::script@2.0.0
-//  * only stepid and version (requires a default steplib source to be provided):
-//    * script@2.0.0
-//  * only stepid, latest version will be used (requires a default steplib source to be provided):
-//    * script
+//   - local path:
+//   - path::~/path/to/step/dir
+//   - direct git url and branch or tag:
+//   - git::https://github.com/bitrise-io/steps-timestamp.git@master
+//   - Steplib independent step:
+//   - _::https://github.com/bitrise-io/steps-bash-script.git@2.0.0:
+//   - full ID with steplib, stepid and version:
+//   - https://github.com/bitrise-io/bitrise-steplib.git::script@2.0.0
+//   - only stepid and version (requires a default steplib source to be provided):
+//   - script@2.0.0
+//   - only stepid, latest version will be used (requires a default steplib source to be provided):
+//   - script
 func CreateStepIDDataFromString(compositeVersionStr, defaultStepLibSource string) (StepIDData, error) {
 	src := getStepSource(compositeVersionStr)
 	if src == "" {

@@ -7,9 +7,9 @@ import (
 	"path/filepath"
 	"testing"
 
-	"github.com/bitrise-io/bitrise/models"
 	"github.com/bitrise-io/go-utils/command"
 	"github.com/stretchr/testify/require"
+	"github.com/tothszabi/bitrise-test/models"
 )
 
 func Test_stepBinaryFilename(t *testing.T) {

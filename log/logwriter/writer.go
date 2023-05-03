@@ -4,8 +4,8 @@ import (
 	"strings"
 	"sync"
 
-	"github.com/bitrise-io/bitrise/log"
-	"github.com/bitrise-io/bitrise/log/corelog"
+	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/log/corelog"
 )
 
 const MaxMessageSize uint64 = 32 * 1024

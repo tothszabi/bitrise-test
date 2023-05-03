@@ -4,9 +4,9 @@ import (
 	"testing"
 	"time"
 
-	"github.com/bitrise-io/bitrise/models"
 	"github.com/bitrise-io/go-utils/v2/analytics"
 	"github.com/stretchr/testify/require"
+	"github.com/tothszabi/bitrise-test/models"
 )
 
 func Test_mapStepResultToEvent(t *testing.T) {

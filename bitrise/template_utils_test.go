@@ -5,10 +5,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/bitrise-io/bitrise/configs"
-	"github.com/bitrise-io/bitrise/models"
 	envmanModels "github.com/bitrise-io/envman/models"
 	"github.com/stretchr/testify/require"
+	"github.com/tothszabi/bitrise-test/configs"
+	"github.com/tothszabi/bitrise-test/models"
 )
 
 func TestEvaluateStepTemplateToBool(t *testing.T) {

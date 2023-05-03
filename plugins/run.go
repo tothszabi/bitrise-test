@@ -5,13 +5,13 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/bitrise-io/bitrise/configs"
-	"github.com/bitrise-io/bitrise/log"
-	"github.com/bitrise-io/bitrise/log/logwriter"
-	"github.com/bitrise-io/bitrise/models"
-	"github.com/bitrise-io/bitrise/tools"
-	"github.com/bitrise-io/bitrise/version"
 	"github.com/bitrise-io/go-utils/pathutil"
+	"github.com/tothszabi/bitrise-test/configs"
+	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/log/logwriter"
+	"github.com/tothszabi/bitrise-test/models"
+	"github.com/tothszabi/bitrise-test/tools"
+	"github.com/tothszabi/bitrise-test/version"
 )
 
 //=======================================

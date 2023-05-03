@@ -4,9 +4,9 @@ import (
 	"os"
 	"time"
 
-	"github.com/bitrise-io/bitrise/log/corelog"
-	"github.com/bitrise-io/bitrise/models"
-	"github.com/bitrise-io/bitrise/version"
+	"github.com/tothszabi/bitrise-test/log/corelog"
+	"github.com/tothszabi/bitrise-test/models"
+	"github.com/tothszabi/bitrise-test/version"
 )
 
 var globalLogger *defaultLogger

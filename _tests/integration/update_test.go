@@ -4,10 +4,10 @@ import (
 	"os/exec"
 	"testing"
 
-	"github.com/bitrise-io/bitrise/cli"
-	"github.com/bitrise-io/bitrise/version"
 	"github.com/bitrise-io/go-utils/command"
 	"github.com/stretchr/testify/require"
+	"github.com/tothszabi/bitrise-test/cli"
+	"github.com/tothszabi/bitrise-test/version"
 )
 
 func Test_Update(t *testing.T) {

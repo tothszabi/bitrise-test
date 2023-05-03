@@ -7,10 +7,6 @@ import (
 	"strings"
 	"time"
 
-	"github.com/bitrise-io/bitrise/log"
-	"github.com/bitrise-io/bitrise/plugins"
-	"github.com/bitrise-io/bitrise/tools"
-	"github.com/bitrise-io/bitrise/utils"
 	"github.com/bitrise-io/go-utils/colorstring"
 	"github.com/bitrise-io/go-utils/command"
 	"github.com/bitrise-io/go-utils/progress"
@@ -19,6 +15,10 @@ import (
 	"github.com/bitrise-io/goinp/goinp"
 	stepmanModels "github.com/bitrise-io/stepman/models"
 	ver "github.com/hashicorp/go-version"
+	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/plugins"
+	"github.com/tothszabi/bitrise-test/tools"
+	"github.com/tothszabi/bitrise-test/utils"
 )
 
 var isAptGetUpdated bool

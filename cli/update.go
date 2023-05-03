@@ -13,13 +13,13 @@ import (
 	"runtime"
 	"strings"
 
-	"github.com/bitrise-io/bitrise/bitrise"
-	"github.com/bitrise-io/bitrise/configs"
-	"github.com/bitrise-io/bitrise/log"
-	"github.com/bitrise-io/bitrise/plugins"
-	"github.com/bitrise-io/bitrise/version"
 	"github.com/bitrise-io/go-utils/command"
 	ver "github.com/hashicorp/go-version"
+	"github.com/tothszabi/bitrise-test/bitrise"
+	"github.com/tothszabi/bitrise-test/configs"
+	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/plugins"
+	"github.com/tothszabi/bitrise-test/version"
 	"github.com/urfave/cli"
 )
 

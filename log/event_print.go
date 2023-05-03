@@ -5,11 +5,11 @@ import (
 	"strings"
 	"time"
 
-	"github.com/bitrise-io/bitrise/log/corelog"
-	"github.com/bitrise-io/bitrise/models"
-	"github.com/bitrise-io/bitrise/utils"
 	"github.com/bitrise-io/go-utils/colorstring"
 	"github.com/bitrise-io/go-utils/stringutil"
+	"github.com/tothszabi/bitrise-test/log/corelog"
+	"github.com/tothszabi/bitrise-test/models"
+	"github.com/tothszabi/bitrise-test/utils"
 )
 
 const (

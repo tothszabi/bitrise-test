@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"path/filepath"
 
-	"github.com/bitrise-io/bitrise/models"
-	"github.com/bitrise-io/bitrise/utils"
 	"github.com/bitrise-io/go-utils/command"
 	"github.com/bitrise-io/go-utils/stringutil"
 	stepmanModels "github.com/bitrise-io/stepman/models"
+	"github.com/tothszabi/bitrise-test/models"
+	"github.com/tothszabi/bitrise-test/utils"
 )
 
 // BashToolkit ...

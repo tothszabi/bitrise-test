@@ -10,10 +10,10 @@ import (
 
 	"github.com/bitrise-io/envman/models"
 
-	"github.com/bitrise-io/bitrise/configs"
 	"github.com/bitrise-io/go-utils/command"
 	"github.com/bitrise-io/go-utils/pathutil"
 	"github.com/stretchr/testify/require"
+	"github.com/tothszabi/bitrise-test/configs"
 )
 
 func TestMoveFile(t *testing.T) {

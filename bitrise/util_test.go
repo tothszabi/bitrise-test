@@ -4,10 +4,10 @@ import (
 	"encoding/json"
 	"testing"
 
-	"github.com/bitrise-io/bitrise/configs"
 	envmanModels "github.com/bitrise-io/envman/models"
 	stepmanModels "github.com/bitrise-io/stepman/models"
 	"github.com/stretchr/testify/require"
+	"github.com/tothszabi/bitrise-test/configs"
 )
 
 func TestApplyOutputAliases(t *testing.T) {

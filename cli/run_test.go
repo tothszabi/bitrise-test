@@ -10,17 +10,17 @@ import (
 	"testing"
 	"time"
 
-	cliAnalytics "github.com/bitrise-io/bitrise/analytics"
-	"github.com/bitrise-io/bitrise/bitrise"
-	"github.com/bitrise-io/bitrise/configs"
-	"github.com/bitrise-io/bitrise/log"
-	"github.com/bitrise-io/bitrise/models"
-	"github.com/bitrise-io/bitrise/plugins"
 	"github.com/bitrise-io/go-utils/fileutil"
 	"github.com/bitrise-io/go-utils/pathutil"
 	"github.com/bitrise-io/go-utils/v2/analytics"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
+	cliAnalytics "github.com/tothszabi/bitrise-test/analytics"
+	"github.com/tothszabi/bitrise-test/bitrise"
+	"github.com/tothszabi/bitrise-test/configs"
+	"github.com/tothszabi/bitrise-test/log"
+	"github.com/tothszabi/bitrise-test/models"
+	"github.com/tothszabi/bitrise-test/plugins"
 )
 
 func TestSkipIfEmpty(t *testing.T) {
